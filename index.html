@@ -4,11 +4,271 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vaibhav Varshney — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>V</text></svg>">
+  <meta name="description" content="Portfolio of Vaibhav Varshney — Data Science, ML, DevOps, projects, research, and recommendations."/>
 </head>
 <body>
-  <h1>Vaibhav Varshney — Portfolio</h1>
-  <p>This is your portfolio base. Upload your resume and profile image in this folder.</p>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="brand">Vaibhav <span class="brand-accent">Varshney</span></a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a class="nav-link" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#education">Education</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#research">Research</a></li>
+        <li><a class="nav-link" href="#recommendations">Recommendations</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <div class="badge">👋 Welcome to my portfolio</div>
+        <h1 class="hero-title">Hi, I'm <span class="highlight">Vaibhav</span></h1>
+        <p class="hero-sub">Data Science • ML • DevOps</p>
+        <p class="hero-desc">
+          I build predictive models, ship ML apps, and turn data into decisions. Currently pursuing an MS in Data Science at UMD.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noreferrer">⬇ Download Resume</a>
+          <a class="btn btn-ghost" href="mailto:varshney2vaibhav@gmail.com">Say hello</a>
+        </div>
+        <div class="social">
+          <a href="https://www.linkedin.com/in/vaibhav-varshney-vv/" target="_blank" aria-label="LinkedIn">in</a>
+          <a href="https://github.com/VaibhaVarshney" target="_blank" aria-label="GitHub">GH</a>
+          <a href="https://varshney2vaibhav.carrd.co/" target="_blank" aria-label="Old Portfolio">↗</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="avatar-ring">
+          <img src="profile.jpg" alt="Vaibhav Varshney" class="avatar"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="grid two">
+        <div class="card">
+          <p>
+            I'm a data scientist & ML practitioner focused on building reliable systems that deliver
+            measurable value. I’ve worked across ML modeling, deployment (AWS/Streamlit), and analytics,
+            with a keen interest in MLOps and applied research.
+          </p>
+          <p>
+            Previously: ERP & CRM customization at Mavio Solutions (data imports, automation, and client workflows).
+            Long-term: lead ML products that impact society (agri-tech, public health), and eventually build a data consultancy.
+          </p>
+        </div>
+        <div class="card">
+          <ul class="kv">
+            <li><span>Location</span><b>USA</b></li>
+            <li><span>Email</span><a href="mailto:varshney2vaibhav@gmail.com">varshney2vaibhav@gmail.com</a></li>
+            <li><span>Interests</span><b>ML Systems, MLOps, Research</b></li>
+            <li><span>Tools</span><b>Python, TensorFlow, PyTorch, SQL, AWS</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="grid three">
+        <article class="card">
+          <header class="card-head">
+            <h3>Research & Outreach — Plant Disease Detection</h3>
+            <span class="muted">Mar 2024 – Apr 2024</span>
+          </header>
+          <ul class="bullets">
+            <li>Scaled dataset to 70k+ images for multiple crops; built transfer learning CNNs (~97% accuracy).</li>
+            <li>Used augmentation & confusion matrices for evaluation; gathered insights from local farmers.</li>
+            <li>Deployed a Streamlit demo to communicate results to stakeholders.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <header class="card-head">
+            <h3>ERP/CRM Customization — Mavio Solutions</h3>
+            <span class="muted">Aug 2023 – Dec 2023</span>
+          </header>
+          <ul class="bullets">
+            <li>Customized ERPNext (Frappe); imported/cleaned 10k+ client assets.</li>
+            <li>Built Salesforce automations to streamline customer workflows.</li>
+            <li>Collaborated with stakeholders to align technical work with business needs.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <header class="card-head">
+            <h3>Volunteering — Human Care International</h3>
+            <span class="muted">Jun 2024 – Jul 2024</span>
+          </header>
+          <ul class="bullets">
+            <li>Community service and welfare projects; support for women and seniors.</li>
+            <li>Strengthened teamwork, empathy, and communication through field work.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="grid three">
+        <article class="card">
+          <header class="card-head">
+            <h3>MS, Data Science</h3>
+            <span class="muted">University of Maryland, College Park</span>
+            <span class="muted">Aug 2025 – Present</span>
+          </header>
+        </article>
+
+        <article class="card">
+          <header class="card-head">
+            <h3>B.Tech, Computer Science</h3>
+            <span class="muted">MIT World Peace University</span>
+            <span class="muted">2020 – 2024 • CGPA 8.59/10</span>
+          </header>
+        </article>
+
+        <article class="card">
+          <header class="card-head">
+            <h3>Certifications</h3>
+            <span class="muted">IBM: DS Fundamentals • Python for DS, AI & Dev</span>
+          </header>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid three">
+        <article class="card">
+          <header class="card-head">
+            <h3>Plant Disease Detection</h3>
+            <span class="muted">CNNs • Streamlit • 70k+ imgs</span>
+          </header>
+          <p class="muted">Transfer learning & deployment demo for multi-crop disease classification.</p>
+        </article>
+        <article class="card">
+          <header class="card-head">
+            <h3>Heart Failure Prediction</h3>
+            <span class="muted">SVM • XGBoost • ROC</span>
+          </header>
+          <p class="muted">Compared ML models on clinical features; best ~86.4% accuracy.</p>
+        </article>
+        <article class="card">
+          <header class="card-head">
+            <h3>SimCLR Poster</h3>
+            <span class="muted">Self-supervised • PyTorch</span>
+          </header>
+          <p class="muted">Poster exploring contrastive learning for visual representations.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" class="section">
+    <div class="container">
+      <h2 class="section-title">Research & Publications</h2>
+      <article class="card">
+        <header class="card-head">
+          <h3>Advancements in Plant Disease Detection Technologies</h3>
+          <span class="muted">YMER — Publication</span>
+        </header>
+        <p class="muted">
+          Research paper covering datasets, augmentation, and model performance for crop disease detection at scale.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- RECOMMENDATIONS -->
+  <section id="recommendations" class="section">
+    <div class="container">
+      <h2 class="section-title">Recommendations</h2>
+      <div class="chips">
+        <a class="chip" href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        <a class="chip" href="LOR_1.pdf" target="_blank" rel="noreferrer">LOR — Dr. Pradnya Kulkarni</a>
+        <a class="chip" href="LOR_2.pdf" target="_blank" rel="noreferrer">LOR — Ms. Anita Gunjal</a>
+        <a class="chip" href="LOR_3.pdf" target="_blank" rel="noreferrer">LOR — Ms. Ketaki Kulkarni</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="grid three">
+        <article class="card">
+          <h3>Programming</h3>
+          <div class="tags">
+            <span>Python</span><span>JavaScript</span><span>SQL</span><span>HTML</span><span>CSS</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>ML & Data</h3>
+          <div class="tags">
+            <span>TensorFlow</span><span>PyTorch</span><span>scikit-learn</span>
+            <span>Pandas</span><span>NumPy</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Tools</h3>
+          <div class="tags">
+            <span>AWS</span><span>Streamlit</span><span>Power BI</span><span>Git/GitHub</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Vaibhav Varshney. All rights reserved.</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/vaibhav-varshney-vv/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/VaibhaVarshney" target="_blank">GitHub</a>
+        <a href="mailto:varshney2vaibhav@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
