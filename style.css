@@ -1537,3 +1537,8 @@ html {
         padding: 0.4rem 0.8rem;
     }
 }
+
+#blogs .section-title::before {
+    content: "📝";
+    margin-right: 0.5rem;
+}
