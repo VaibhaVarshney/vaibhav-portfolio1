@@ -79,7 +79,7 @@
         justify-content: space-between;
         padding: 0 56px;
         height: 64px;
-        background: rgba(6, 7, 10, 0.8);
+        background: rgba(6, 7, 10, 0.85);
         backdrop-filter: blur(24px);
         border-bottom: 1px solid var(--border);
       }
@@ -95,7 +95,7 @@
       }
       .nav-links {
         display: flex;
-        gap: 32px;
+        gap: 28px;
         list-style: none;
       }
       .nav-links a {
@@ -276,8 +276,8 @@
       /* ABOUT */
       .ag {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
+        grid-template-columns: 340px 1fr;
+        gap: 56px;
         align-items: start;
       }
       .at p {
@@ -290,16 +290,93 @@
         color: var(--text);
         font-weight: 600;
       }
+
+      /* Photo */
+      .about-photo-col {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        position: sticky;
+        top: 88px;
+      }
+      .photo-wrap {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        aspect-ratio: 3/4;
+        width: 100%;
+      }
+      .photo-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        mix-blend-mode: luminosity;
+        filter: contrast(1.05) brightness(0.92);
+        transition:
+          filter 0.3s,
+          mix-blend-mode 0.3s;
+      }
+      .photo-wrap:hover img {
+        mix-blend-mode: normal;
+        filter: contrast(1.02) brightness(0.96);
+      }
+      /* subtle purple tint overlay */
+      .photo-wrap::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          160deg,
+          rgba(167, 139, 250, 0.08) 0%,
+          rgba(6, 7, 10, 0.35) 100%
+        );
+        pointer-events: none;
+        border-radius: 20px;
+      }
+      .photo-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: var(--text3);
+      }
+      .photo-initials {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--pd);
+        border: 2px solid var(--pb);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--purple);
+      }
+      .photo-note {
+        font-size: 11px;
+        color: var(--text3);
+        text-align: center;
+        line-height: 1.5;
+      }
       .ac {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 10px;
       }
       .acard {
         background: var(--bg2);
         border: 1px solid var(--border);
         border-radius: 12px;
-        padding: 20px;
+        padding: 18px;
         transition: border-color 0.2s;
       }
       .acard:hover {
@@ -307,13 +384,13 @@
       }
       .an {
         font-family: var(--serif);
-        font-size: 30px;
+        font-size: 28px;
         font-weight: 700;
         line-height: 1;
         margin-bottom: 5px;
       }
       .al {
-        font-size: 12px;
+        font-size: 11px;
         color: var(--text2);
         line-height: 1.4;
       }
@@ -336,24 +413,10 @@
           border-color 0.25s;
         position: relative;
         overflow: hidden;
-        cursor: default;
       }
       .pc:hover {
         transform: translateY(-4px);
         border-color: var(--borderH);
-      }
-      .pc::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-      .pc:hover::before {
-        opacity: 1;
       }
       .pc-top {
         display: flex;
@@ -374,8 +437,11 @@
         gap: 5px;
       }
       .badge::before {
-        content: "●";
-        font-size: 7px;
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: currentColor;
       }
       .b-agents {
         background: var(--pd);
@@ -407,12 +473,16 @@
         color: var(--green);
         border: 1px solid rgba(74, 222, 128, 0.25);
       }
-      .b-mlops {
+      .b-finance {
         background: var(--rd);
         color: var(--red);
         border: 1px solid rgba(248, 113, 113, 0.25);
       }
-      .gh-link {
+      .pc-links {
+        display: flex;
+        gap: 6px;
+      }
+      .ico-btn {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -422,13 +492,15 @@
         border: 1px solid var(--border);
         color: var(--text3);
         text-decoration: none;
-        font-size: 12px;
+        font-size: 11px;
         transition: all 0.2s;
         flex-shrink: 0;
+        font-family: var(--mono);
       }
-      .gh-link:hover {
+      .ico-btn:hover {
         border-color: var(--purple);
         color: var(--purple);
+        background: var(--pd);
       }
       .pname {
         font-size: 15px;
@@ -469,7 +541,7 @@
         display: block;
         line-height: 1;
       }
-      .ml {
+      .ml2 {
         font-size: 10px;
         color: var(--text3);
         margin-top: 3px;
@@ -493,7 +565,7 @@
       .tl {
         display: flex;
         flex-direction: column;
-        gap: 0;
+        gap: 16px;
       }
       .tli {
         display: grid;
@@ -578,12 +650,13 @@
         position: relative;
       }
       .tbl li::before {
-        content: "→";
+        content: ">";
         position: absolute;
         left: 0;
         color: var(--purple);
         font-size: 10px;
         top: 3px;
+        font-family: var(--mono);
       }
       .tbl li strong {
         color: var(--text);
@@ -679,7 +752,7 @@
         border: 1px solid var(--border);
       }
 
-      /* SKILLS — animated bubbles canvas */
+      /* SKILLS */
       #skills-canvas {
         display: block;
         width: 100%;
@@ -687,7 +760,6 @@
         cursor: default;
         margin-bottom: 48px;
       }
-
       .sg-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -976,7 +1048,6 @@
         color: var(--text3);
       }
 
-      /* FADE */
       .fi {
         opacity: 0;
         transform: translateY(22px);
@@ -1021,7 +1092,7 @@
         <div class="hero-role">AI / ML Engineer</div>
         <div class="hero-stats">
           <div class="hstat">
-            <span class="hstat-num" style="color: var(--purple)">6+</span
+            <span class="hstat-num" style="color: var(--purple)">7+</span
             ><span class="hstat-label">Projects</span>
           </div>
           <div class="hstat">
@@ -1029,8 +1100,8 @@
             ><span class="hstat-label">Peak Accuracy</span>
           </div>
           <div class="hstat">
-            <span class="hstat-num" style="color: var(--pink)">10K+</span
-            ><span class="hstat-label">Records Managed</span>
+            <span class="hstat-num" style="color: var(--pink)">70%</span
+            ><span class="hstat-label">Admin Saved</span>
           </div>
           <div class="hstat">
             <span class="hstat-num" style="color: var(--blue)">8.59</span
@@ -1048,6 +1119,29 @@
     <!-- ABOUT -->
     <div id="about" class="sw fi">
       <div class="ag">
+        <div class="about-photo-col">
+          <div class="photo-wrap">
+            <img src="VV.png" alt="Vaibhav Varshney" />
+          </div>
+          <div class="ac">
+            <div class="acard fi d1">
+              <div class="an" style="color: var(--purple)">7+</div>
+              <div class="al">AI/ML Projects Built</div>
+            </div>
+            <div class="acard fi d2">
+              <div class="an" style="color: var(--teal)">8.59</div>
+              <div class="al">GPA, BTech CS</div>
+            </div>
+            <div class="acard fi d2">
+              <div class="an" style="color: var(--pink)">97%</div>
+              <div class="al">Model Accuracy</div>
+            </div>
+            <div class="acard fi d3">
+              <div class="an" style="color: var(--blue)">200+</div>
+              <div class="al">Eval Dataset Size</div>
+            </div>
+          </div>
+        </div>
         <div class="at">
           <div class="ss" style="text-align: left; margin-bottom: 14px">
             About Me
@@ -1056,25 +1150,25 @@
             class="sh"
             style="text-align: left; font-size: 36px; margin-bottom: 22px"
           >
-            Building at the edge of ideas &amp; implementation
+            Building at the edge of ideas and implementation
           </h2>
           <p>
-            Hey! I'm <strong>Vaibhav Varshney</strong>, a Data Science
-            professional who loves turning raw data into meaningful decisions
-            and scalable systems. Currently pursuing my
+            Hey! I'm <strong>Vaibhav Varshney</strong>, an AI/ML Engineer who
+            turns raw data into meaningful decisions and scalable systems.
+            Currently pursuing my
             <strong
               >MS in Data Science at the University of Maryland, College
               Park</strong
             >.
           </p>
           <p>
-            I build end-to-end AI systems — from multi-agent LangGraph pipelines
-            and clinical NLP dashboards to RAG systems with eval harnesses and
+            I build end-to-end AI systems: multi-agent LangGraph pipelines,
+            clinical NLP dashboards, RAG systems with eval harnesses, and
             agentic financial monitors. I care about
             <strong>production-grade ML</strong>, not just notebook demos.
           </p>
           <p>
-            Whether it's deep learning, LLMs, or MLOps — I thrive where
+            Whether it's deep learning, LLMs, or MLOps, I thrive where
             <strong>rigorous engineering meets real-world impact</strong>.
           </p>
           <div
@@ -1088,28 +1182,11 @@
             >
             <a
               href="https://github.com/VaibhaVarshney"
+              target="_blank"
               class="btn-ghost"
               style="font-size: 13px; padding: 11px 24px"
-              >GitHub ↗</a
+              >GitHub</a
             >
-          </div>
-        </div>
-        <div class="ac">
-          <div class="acard fi d1">
-            <div class="an" style="color: var(--purple)">6+</div>
-            <div class="al">AI/ML Projects<br />Built & Deployed</div>
-          </div>
-          <div class="acard fi d2">
-            <div class="an" style="color: var(--teal)">8.59</div>
-            <div class="al">GPA — BTech CS<br />MIT WPU</div>
-          </div>
-          <div class="acard fi d2">
-            <div class="an" style="color: var(--pink)">97%</div>
-            <div class="al">Model Accuracy<br />Plant Detection</div>
-          </div>
-          <div class="acard fi d3">
-            <div class="an" style="color: var(--blue)">200+</div>
-            <div class="al">Eval Incidents<br />Golden Dataset</div>
           </div>
         </div>
       </div>
@@ -1125,40 +1202,36 @@
       </div>
       <div class="pg">
         <!-- TriageAI -->
-        <div class="pc" style="--accent: var(--purple)">
-          <div
-            class="pc::before"
-            style="
-              background: linear-gradient(90deg, var(--purple), transparent);
-            "
-          ></div>
+        <div class="pc">
           <div class="pc-top">
             <span class="badge b-agents">Multi-Agent</span>
-            <a href="#" class="gh-link" title="GitHub">↗</a>
+            <div class="pc-links">
+              <a href="#" class="ico-btn" title="Live Demo">Demo</a>
+              <a href="#" class="ico-btn" title="GitHub">GH</a>
+            </div>
           </div>
-          <div class="pname">TriageAI — Incident Triage System</div>
-          <div class="ptag-line">
-            LangGraph Multi-Agent · P0–P3 Classification
-          </div>
+          <div class="pname">TriageAI</div>
+          <div class="ptag-line">LangGraph Multi-Agent Incident Triage</div>
           <div class="pdesc">
             Multi-agent system that reads broken dashboards or log files,
-            classifies incident severity (P0–P3), pulls runbook steps from a
-            vector DB, assigns team ownership, and generates plain-English
-            digests — in under 8s. Differentiator: 200-incident golden eval
-            dataset scored automatically in CI.
+            classifies incident severity (P0 through P3), pulls runbook steps
+            from a vector DB, assigns team ownership, and generates
+            plain-English digests in under 8s. Differentiator: 200-incident
+            golden eval dataset scored automatically in CI, separating it from a
+            basic API wrapper.
           </div>
           <div class="pm">
             <div class="met">
               <span class="mv" style="color: var(--purple)">&lt;8s</span>
-              <div class="ml">Response Time</div>
+              <div class="ml2">Response</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--teal)">200</span>
-              <div class="ml">Eval Dataset</div>
+              <div class="ml2">Eval Set</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--orange)">4</span>
-              <div class="ml">Specialist Agents</div>
+              <div class="ml2">Agents</div>
             </div>
           </div>
           <div class="ptags">
@@ -1174,29 +1247,33 @@
         <div class="pc">
           <div class="pc-top">
             <span class="badge b-nlp">Clinical NLP</span>
-            <a href="#" class="gh-link" title="GitHub">↗</a>
+            <div class="pc-links">
+              <a href="#" class="ico-btn" title="Live Demo">Demo</a>
+              <a href="#" class="ico-btn" title="GitHub">GH</a>
+            </div>
           </div>
-          <div class="pname">TherapyLens — Clinical NLP Pipeline</div>
-          <div class="ptag-line">Groq LLaMA-3.3-70b · HIPAA-Aware Design</div>
+          <div class="pname">TherapyLens</div>
+          <div class="ptag-line">Clinical NLP Pipeline with Bias Auditing</div>
           <div class="pdesc">
             6-stage clinical NLP pipeline processing 158 therapy transcripts
             across 4 demographic cohorts. Emotion detection, topic modeling,
-            engagement signal extraction, LLM summarization, and a demographic
-            bias audit flagging a 0.172 sentiment gap between veteran and adult
-            cohorts.
+            engagement signal extraction, LLM summarization via Groq
+            LLaMA-3.3-70b, and a demographic bias audit that flagged a 0.172
+            sentiment gap between veteran and adult cohorts, exceeding the 0.15
+            clinical review threshold.
           </div>
           <div class="pm">
             <div class="met">
               <span class="mv" style="color: var(--pink)">158</span>
-              <div class="ml">Sessions</div>
+              <div class="ml2">Sessions</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--purple)">0.172</span>
-              <div class="ml">Bias Gap</div>
+              <div class="ml2">Bias Gap</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--teal)">7-pg</span>
-              <div class="ml">Dashboard</div>
+              <div class="ml2">Dashboard</div>
             </div>
           </div>
           <div class="ptags">
@@ -1211,31 +1288,32 @@
         <div class="pc">
           <div class="pc-top">
             <span class="badge b-rag">RAG</span>
-            <a href="#" class="gh-link" title="GitHub">↗</a>
+            <div class="pc-links">
+              <a href="#" class="ico-btn" title="Live Demo">Demo</a>
+              <a href="#" class="ico-btn" title="GitHub">GH</a>
+            </div>
           </div>
-          <div class="pname">Stratum — RAG Document Q&A</div>
-          <div class="ptag-line">
-            Hybrid Retrieval · LLM-as-Judge Eval Harness
-          </div>
+          <div class="pname">Stratum</div>
+          <div class="ptag-line">RAG Document Q&A with Eval Harness</div>
           <div class="pdesc">
             Production-grade RAG pipeline letting users query any PDF in plain
             English with grounded, cited answers. Built-in LLM-as-judge eval
             harness automatically scores faithfulness, relevance, and
-            completeness across 3 retrieval strategies (hybrid, semantic, BM25)
-            with visual dashboard.
+            completeness across 3 retrieval strategies (hybrid BM25 + dense,
+            semantic, BM25) with a visual comparison dashboard.
           </div>
           <div class="pm">
             <div class="met">
               <span class="mv" style="color: var(--blue)">3</span>
-              <div class="ml">Retrieval Modes</div>
+              <div class="ml2">Retrieval Modes</div>
             </div>
             <div class="met">
-              <span class="mv" style="color: var(--teal)">BM25</span>
-              <div class="ml">+ Dense Hybrid</div>
+              <span class="mv" style="color: var(--teal)">40/60</span>
+              <div class="ml2">BM25/Dense</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--purple)">Auto</span>
-              <div class="ml">CI Eval</div>
+              <div class="ml2">CI Eval</div>
             </div>
           </div>
           <div class="ptags">
@@ -1246,47 +1324,95 @@
           </div>
         </div>
 
+        <!-- FinAgentX -->
+        <div class="pc">
+          <div class="pc-top">
+            <span class="badge b-finance">Finance AI</span>
+            <div class="pc-links">
+              <a href="#" class="ico-btn" title="Live Demo">Demo</a>
+              <a
+                href="https://github.com/VaibhaVarshney/FinAgentX"
+                target="_blank"
+                class="ico-btn"
+                title="GitHub"
+                >GH</a
+              >
+            </div>
+          </div>
+          <div class="pname">FinAgentX</div>
+          <div class="ptag-line">Local Free AI Financial Education Agent</div>
+          <div class="pdesc">
+            LangGraph-powered financial education agent running entirely on
+            free-tier infrastructure. Fetches real-time stock data, computes
+            RSI, moving averages, Sharpe Ratio, and Max Drawdown, then generates
+            plain-English explanations via Groq LLaMA. Supports stock analysis,
+            side-by-side comparison, and concept explanation with no GPU
+            required.
+          </div>
+          <div class="pm">
+            <div class="met">
+              <span class="mv" style="color: var(--red)">Free</span>
+              <div class="ml2">Infra</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--orange)">3</span>
+              <div class="ml2">Agent Modes</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--teal)">Real-time</span>
+              <div class="ml2">Stock Data</div>
+            </div>
+          </div>
+          <div class="ptags">
+            <span class="ptag">LangGraph</span
+            ><span class="ptag">LangChain</span><span class="ptag">Groq</span>
+            <span class="ptag">yfinance</span><span class="ptag">pandas-ta</span
+            ><span class="ptag">numpy</span>
+          </div>
+        </div>
+
         <!-- MDI Monitor -->
         <div class="pc">
           <div class="pc-top">
             <span class="badge b-agentic">Agentic</span>
-            <a
-              href="https://github.com/VaibhaVarshney/Agentic_Mdi_Monitor"
-              class="gh-link"
-              title="GitHub"
-              >↗</a
-            >
+            <div class="pc-links">
+              <a href="#" class="ico-btn" title="Live Demo">Demo</a>
+              <a
+                href="https://github.com/VaibhaVarshney/Agentic_Mdi_Monitor"
+                target="_blank"
+                class="ico-btn"
+                title="GitHub"
+                >GH</a
+              >
+            </div>
           </div>
           <div class="pname">MDI Liquidity Monitor</div>
-          <div class="ptag-line">
-            FDIC API · Early Warning System · UMD Challenge
-          </div>
+          <div class="ptag-line">FDIC API Early Warning System</div>
           <div class="pdesc">
             AI-powered early warning system for 144 minority depository
-            institutions (MDIs). Detects liquidity stress 60–90 days before
-            crisis by computing 4 key ratios from FDIC Call Report data, then
-            auto-matches at-risk banks to federal assistance programs (Fed
-            Discount Window, FHLB, CDFI) and generates CFO application briefs.
+            institutions. Detects liquidity stress 60 to 90 days before crisis
+            by computing 4 key ratios from FDIC Call Report data, auto-matches
+            at-risk banks to federal assistance programs (Fed Discount Window,
+            FHLB, CDFI), and generates CFO application briefs automatically.
           </div>
           <div class="pm">
             <div class="met">
               <span class="mv" style="color: var(--orange)">144</span>
-              <div class="ml">MDIs Monitored</div>
+              <div class="ml2">MDIs</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--teal)">90d</span>
-              <div class="ml">Early Warning</div>
+              <div class="ml2">Early Warning</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--purple)">4</span>
-              <div class="ml">Liquidity Ratios</div>
+              <div class="ml2">Ratios</div>
             </div>
           </div>
           <div class="ptags">
             <span class="ptag">Python</span><span class="ptag">FDIC API</span
             ><span class="ptag">Claude API</span>
-            <span class="ptag">Streamlit</span><span class="ptag">Pandas</span
-            ><span class="ptag">Agentic AI</span>
+            <span class="ptag">Streamlit</span><span class="ptag">Pandas</span>
           </div>
         </div>
 
@@ -1294,64 +1420,71 @@
         <div class="pc">
           <div class="pc-top">
             <span class="badge b-dl">Deep Learning</span>
-            <a href="#" class="gh-link" title="GitHub">↗</a>
+            <div class="pc-links">
+              <a href="#" class="ico-btn" title="Live Demo">Demo</a>
+              <a href="#" class="ico-btn" title="GitHub">GH</a>
+            </div>
           </div>
-          <div class="pname">Plant Disease Detection System</div>
-          <div class="ptag-line">CNN + Transfer Learning · ~97% Accuracy</div>
+          <div class="pname">Plant Disease Detection</div>
+          <div class="ptag-line">CNN + Transfer Learning at 97% Accuracy</div>
           <div class="pdesc">
             Led a team building a deep learning system trained on 70k+ images
             with TensorFlow/Keras, data augmentation, and transfer learning
-            reaching ~97% accuracy. Includes RBAC auth, real-time inventory
-            management, analytics dashboards, and Celery background tasks.
+            reaching 97% accuracy. Includes role-based access control, real-time
+            inventory management, analytics dashboards, and Celery background
+            task processing.
           </div>
           <div class="pm">
             <div class="met">
               <span class="mv" style="color: var(--teal)">97%</span>
-              <div class="ml">Accuracy</div>
+              <div class="ml2">Accuracy</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--purple)">70K+</span>
-              <div class="ml">Images</div>
+              <div class="ml2">Images</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--pink)">40%</span>
-              <div class="ml">↑ User Activity</div>
+              <div class="ml2">Activity Up</div>
             </div>
           </div>
           <div class="ptags">
             <span class="ptag">TensorFlow</span><span class="ptag">Keras</span>
             <span class="ptag">Transfer Learning</span
-            ><span class="ptag">Streamlit</span><span class="ptag">AWS</span>
+            ><span class="ptag">AWS</span><span class="ptag">Celery</span>
           </div>
         </div>
 
         <!-- Career Recommender -->
         <div class="pc">
           <div class="pc-top">
-            <span class="badge b-xgb">ML · GenAI</span>
-            <a href="#" class="gh-link" title="GitHub">↗</a>
+            <span class="badge b-xgb">ML + GenAI</span>
+            <div class="pc-links">
+              <a href="#" class="ico-btn" title="Live Demo">Demo</a>
+              <a href="#" class="ico-btn" title="GitHub">GH</a>
+            </div>
           </div>
-          <div class="pname">AI Career Recommendation & Resume Analyzer</div>
-          <div class="ptag-line">LLM Resume Parsing · Job-Fit Prediction</div>
+          <div class="pname">AI Career Recommender</div>
+          <div class="ptag-line">LLM Resume Parsing + Job-Fit Prediction</div>
           <div class="pdesc">
-            Intelligent job recommendation system using LangChain +
-            OpenAI/HuggingFace to extract structured info from resumes. Trained
-            RandomForest & XGBoost to predict job-fit probabilities for Data
-            Analyst, Data Scientist, ML Engineer, and AI Engineer roles.
-            Deployed on AWS Elastic Beanstalk.
+            Intelligent job recommendation system using LangChain and
+            OpenAI/HuggingFace to extract structured information from resumes.
+            Trained RandomForest and XGBoost to predict job-fit probabilities
+            across Data Analyst, Data Scientist, ML Engineer, and AI Engineer
+            roles. Deployed on AWS Elastic Beanstalk.
           </div>
           <div class="pm">
             <div class="met">
               <span class="mv" style="color: var(--green)">4</span>
-              <div class="ml">Career Roles</div>
+              <div class="ml2">Roles</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--purple)">AWS</span>
-              <div class="ml">Deployed</div>
+              <div class="ml2">Deployed</div>
             </div>
             <div class="met">
               <span class="mv" style="color: var(--blue)">2</span>
-              <div class="ml">ML Models</div>
+              <div class="ml2">ML Models</div>
             </div>
           </div>
           <div class="ptags">
@@ -1372,38 +1505,54 @@
         <div class="ss">Where I've Worked</div>
       </div>
       <div class="tl">
+        <!-- Evergreen - LEFT -->
         <div class="tli">
           <div class="tc">
-            <div class="tperiod">Aug 2023 – Dec 2023</div>
-            <div class="trole">Intern Developer</div>
-            <div class="tco">Mavio Solutions Pvt. Ltd. · India</div>
+            <div class="tperiod">Aug 2024 – Jul 2025</div>
+            <div class="trole">AI Automation Engineer &amp; CS Teacher</div>
+            <div class="tco">
+              Evergreen Public School &middot; New Delhi, India
+            </div>
             <ul class="tbl">
               <li>
-                Developed ERP solutions using
-                <strong>Frappe/ERPNext, Python, and JavaScript</strong>;
-                processed large client datasets ensuring data accuracy.
+                Implemented AI-powered automation workflows using
+                <strong>n8n</strong>, leveraging machine learning algorithms to
+                streamline student data management and reduce manual
+                administrative workload by <strong>~70%</strong> across
+                departments.
               </li>
               <li>
-                Built custom workflows and validation framework improving system
-                efficiency by <strong>25%</strong>, reducing redundancy and
-                manual tasks.
+                Automated collection and processing of
+                <strong>10+ years of student performance data</strong>,
+                eliminating repetitive entry tasks and improving record accuracy
+                to <strong>~95%</strong>.
               </li>
               <li>
-                Managed and integrated
-                <strong>10,000+ client asset records</strong> using Pandas,
-                Excel, and SQL for seamless migration.
+                Built automated data validation pipelines using
+                <strong>n8n</strong> to flag errors at entry level, reducing
+                data inconsistencies and improving overall data reliability by
+                <strong>~40%</strong>.
               </li>
               <li>
-                Led comprehensive
-                <strong>Salesforce CRM development</strong> spanning sales,
-                marketing automation, e-commerce, and analytics.
+                Developed an AI-driven lead generation pipeline to send
+                automated reminders and follow-ups to prospective parents,
+                driving a
+                <strong>20% increase in new admissions</strong> compared to the
+                previous year.
+              </li>
+              <li>
+                Deployed AI-driven reporting workflows that generated
+                performance insights automatically, contributing to an
+                <strong>8 to 10% improvement in student pass rates</strong>
+                through timely, data-backed interventions.
               </li>
             </ul>
             <div class="ttags">
-              <span class="ttag">Frappe/ERPNext</span
+              <span class="ttag">n8n</span
+              ><span class="ttag">AI Automation</span
               ><span class="ttag">Python</span
-              ><span class="ttag">Salesforce</span><span class="ttag">SQL</span
-              ><span class="ttag">Pandas</span>
+              ><span class="ttag">Data Pipelines</span
+              ><span class="ttag">LLMs</span>
             </div>
           </div>
           <div class="tl-mid">
@@ -1411,6 +1560,62 @@
             <div class="tl-line"></div>
           </div>
           <div></div>
+        </div>
+
+        <!-- Mavio - RIGHT -->
+        <div class="tli">
+          <div></div>
+          <div class="tl-mid">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tc">
+            <div class="tperiod">Aug 2023 – Dec 2023</div>
+            <div class="trole">Intern Developer</div>
+            <div class="tco">Mavio Solutions Pvt. Ltd. &middot; India</div>
+            <ul class="tbl">
+              <li>
+                Built and evaluated classification models using
+                <strong>scikit-learn</strong> to generate predictive insights
+                from enterprise workflow data, enabling proactive
+                decision-making for business operations.
+              </li>
+              <li>
+                Automated ETL pipelines and data validation workflows using
+                <strong>Python, Pandas, and big data techniques</strong>,
+                improving data reliability and reducing manual processing
+                overhead by <strong>25%</strong>.
+              </li>
+              <li>
+                Queried and analyzed
+                <strong>100K+ enterprise records</strong> using SQL and Pandas
+                to uncover usage patterns, supporting product and business
+                decision-making.
+              </li>
+              <li>
+                Integrated <strong>ERPNext with Salesforce CRM</strong> to
+                enable automated reporting and improved customer analytics
+                visibility across departments.
+              </li>
+              <li>
+                Designed interactive
+                <strong>Power BI and Streamlit dashboards</strong> with
+                time-series forecasting visualizations to track KPI trends and
+                communicate insights to non-technical stakeholders.
+              </li>
+              <li>
+                Applied hypothesis testing and statistical analysis using
+                <strong>Python and SciPy</strong> to evaluate workflow changes
+                and guide the team toward effective optimizations.
+              </li>
+            </ul>
+            <div class="ttags">
+              <span class="ttag">scikit-learn</span
+              ><span class="ttag">Python</span><span class="ttag">Pandas</span
+              ><span class="ttag">SQL</span><span class="ttag">Salesforce</span
+              ><span class="ttag">Power BI</span><span class="ttag">SciPy</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1426,21 +1631,21 @@
       <div class="eg">
         <div class="ec">
           <div class="eperiod">Aug 2025 – Present</div>
-          <div class="edeg">Master of Science — Data Science</div>
+          <div class="edeg">Master of Science, Data Science</div>
           <div class="esch">University of Maryland, College Park</div>
           <div class="egpa">Track: AI / ML Systems</div>
           <div class="echips">
             <span class="chip">Python</span><span class="chip">ML</span
             ><span class="chip">AI/LLM</span><span class="chip">NLP</span
             ><span class="chip">Generative AI</span
-            ><span class="chip">Transformer Models</span
+            ><span class="chip">Transformers</span
             ><span class="chip">Prompt Engineering</span
             ><span class="chip">Docker</span>
           </div>
         </div>
         <div class="ec">
           <div class="eperiod">Sep 2020 – Jul 2024</div>
-          <div class="edeg">BTech — Computer Science Engineering</div>
+          <div class="edeg">BTech, Computer Science Engineering</div>
           <div class="esch">MIT World Peace University</div>
           <div class="egpa" style="color: var(--teal)">GPA: 8.59 / 10</div>
           <div class="echips">
@@ -1512,9 +1717,10 @@
           </div>
         </div>
         <div class="sg">
-          <div class="sg-t">Deployment & Web</div>
+          <div class="sg-t">Automation & Web</div>
           <div class="sg-tags">
-            <span class="stag">Streamlit</span><span class="stag">Flask</span
+            <span class="stag">n8n</span><span class="stag">Streamlit</span
+            ><span class="stag">Flask</span
             ><span class="stag">Frappe/ERPNext</span
             ><span class="stag">Salesforce CRM</span>
           </div>
@@ -1537,8 +1743,8 @@
             Advancements in Plant Disease Detection Technologies
           </div>
           <div class="pub-meta">
-            V. Varshney et al. · YMER Journal ISSN 0044-0477 · Vol. 23 Issue 09
-            · September 2024
+            V. Varshney et al. &middot; YMER Journal ISSN 0044-0477 &middot;
+            Vol. 23 Issue 09 &middot; September 2024
           </div>
           <div
             style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px"
@@ -1550,8 +1756,9 @@
         </div>
         <a
           href="https://ymerdigital.com/uploads/YMER230951.pdf"
+          target="_blank"
           class="pub-link"
-          >View Paper ↗</a
+          >View Paper</a
         >
       </div>
     </div>
@@ -1567,23 +1774,28 @@
       <div class="bl">
         <a
           href="https://www.linkedin.com/pulse/agentic-ai-vs-agents-generative-vaibhav-varshney-lutrf/"
+          target="_blank"
           class="bi"
         >
           <div>
-            <div class="bsrc">LinkedIn · Article</div>
+            <div class="bsrc">LinkedIn &middot; Article</div>
             <div class="btit">Agentic AI vs. AI Agents vs. Generative AI</div>
             <div class="bdesc">
               Clarifies the differences between Agentic AI, AI Agents, and
-              Generative AI — how each operates, their real-world use cases, and
+              Generative AI, how each operates, their real-world use cases, and
               how the shift to Agentic AI marks a paradigm shift in intelligent
               system design.
             </div>
           </div>
           <div class="barr">↗</div>
         </a>
-        <a href="https://medium.com/@varshney2vaibhav" class="bi">
+        <a
+          href="https://medium.com/@varshney2vaibhav"
+          target="_blank"
+          class="bi"
+        >
           <div>
-            <div class="bsrc">Medium · Article</div>
+            <div class="bsrc">Medium &middot; Article</div>
             <div class="btit">
               The Evolution of Generative AI: From Text to Multimodal Models
             </div>
@@ -1609,7 +1821,7 @@
       <div class="vc">
         <div class="vico">🌱</div>
         <div>
-          <div class="vr">Volunteer — Saksham Project</div>
+          <div class="vr">Volunteer, Saksham Project</div>
           <div class="vo">Human Care International</div>
           <div class="vp">Jan 2022 – Present</div>
           <ul class="tbl">
@@ -1638,7 +1850,7 @@
         <h2 class="ch">Get in Touch</h2>
         <p class="cdesc">
           Open to full-time roles, research collaborations, and freelance
-          projects<br />in AI engineering and data science.
+          projects in AI engineering and data science.
         </p>
         <div class="cpills">
           <a href="mailto:varshney2vaibhav@gmail.com" class="cpill">
@@ -1653,7 +1865,11 @@
               <div class="cpill-val">varshney2vaibhav@gmail.com</div>
             </div>
           </a>
-          <a href="https://linkedin.com/in/vaibhav-varshney" class="cpill">
+          <a
+            href="https://linkedin.com/in/vaibhav-varshney"
+            target="_blank"
+            class="cpill"
+          >
             <div class="cpill-ico" style="background: rgba(96, 165, 250, 0.15)">
               💼
             </div>
@@ -1662,7 +1878,11 @@
               <div class="cpill-val">vaibhav-varshney</div>
             </div>
           </a>
-          <a href="https://github.com/VaibhaVarshney" class="cpill">
+          <a
+            href="https://github.com/VaibhaVarshney"
+            target="_blank"
+            class="cpill"
+          >
             <div class="cpill-ico" style="background: rgba(45, 212, 191, 0.15)">
               ⌨️
             </div>
@@ -1671,7 +1891,11 @@
               <div class="cpill-val">VaibhaVarshney</div>
             </div>
           </a>
-          <a href="https://medium.com/@varshney2vaibhav" class="cpill">
+          <a
+            href="https://medium.com/@varshney2vaibhav"
+            target="_blank"
+            class="cpill"
+          >
             <div class="cpill-ico" style="background: rgba(251, 146, 60, 0.15)">
               ✍️
             </div>
@@ -1688,14 +1912,14 @@
     </section>
 
     <footer>
-      © 2025 Vaibhav Varshney &nbsp;·&nbsp; AI / ML Engineer &nbsp;·&nbsp;
-      University of Maryland, College Park
+      © 2025 Vaibhav Varshney &nbsp;&middot;&nbsp; AI / ML Engineer
+      &nbsp;&middot;&nbsp; University of Maryland, College Park
     </footer>
 
     <script>
-      /* ═══════════════════════════════════════
-   HERO — Neural net node animation
-═══════════════════════════════════════ */
+      /* ═══════════════════════════════════
+   HERO — Enhanced neural network
+═══════════════════════════════════ */
       (function () {
         const cv = document.getElementById("hero-canvas");
         const ctx = cv.getContext("2d");
@@ -1705,32 +1929,35 @@
           frame = 0,
           mouse = { x: null, y: null };
 
-        const COLORS = [
-          "167,139,250",
-          "45,212,191",
-          "244,114,182",
-          "96,165,250",
-          "240,238,232",
+        const COLS = [
+          [167, 139, 250], // purple
+          [45, 212, 191], // teal
+          [244, 114, 182], // pink
+          [96, 165, 250], // blue
+          [255, 255, 255], // white
         ];
 
         function resize() {
           W = cv.width = cv.offsetWidth;
           H = cv.height = cv.offsetHeight;
-          init();
+          initNodes();
         }
 
-        function init() {
+        function initNodes() {
           nodes = [];
-          const n = Math.floor((W * H) / 6000);
-          for (let i = 0; i < n; i++) {
+          const count = Math.floor((W * H) / 5500);
+          for (let i = 0; i < count; i++) {
+            const col = COLS[Math.floor(Math.random() * COLS.length)];
             nodes.push({
               x: Math.random() * W,
               y: Math.random() * H,
-              vx: (Math.random() - 0.5) * 0.35,
-              vy: (Math.random() - 0.5) * 0.35,
-              r: Math.random() * 2 + 1,
-              col: COLORS[Math.floor(Math.random() * COLORS.length)],
-              al: Math.random() * 0.6 + 0.2,
+              vx: (Math.random() - 0.5) * 0.4,
+              vy: (Math.random() - 0.5) * 0.4,
+              r: Math.random() * 1.8 + 0.6,
+              col,
+              baseAl: Math.random() * 0.5 + 0.2,
+              pulse: Math.random() * Math.PI * 2,
+              pulseSpeed: Math.random() * 0.025 + 0.01,
             });
           }
         }
@@ -1739,60 +1966,103 @@
           ctx.clearRect(0, 0, W, H);
           frame++;
 
-          // Draw connections
+          const mx = mouse.x,
+            my = mouse.y;
+
+          // Draw edges first
           for (let i = 0; i < nodes.length; i++) {
+            const a = nodes[i];
             for (let j = i + 1; j < nodes.length; j++) {
-              const dx = nodes[i].x - nodes[j].x,
-                dy = nodes[i].y - nodes[j].y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < 130) {
-                const al = (1 - dist / 130) * 0.18;
+              const b = nodes[j];
+              const dx = a.x - b.x,
+                dy = a.y - b.y;
+              const d = Math.sqrt(dx * dx + dy * dy);
+              if (d < 120) {
+                const al = (1 - d / 120) * 0.15;
+                // blend colours of the two nodes
+                const r = (a.col[0] + b.col[0]) >> 1;
+                const g = (a.col[1] + b.col[1]) >> 1;
+                const bl = (a.col[2] + b.col[2]) >> 1;
                 ctx.beginPath();
-                ctx.moveTo(nodes[i].x, nodes[i].y);
-                ctx.lineTo(nodes[j].x, nodes[j].y);
-                ctx.strokeStyle = `rgba(167,139,250,${al})`;
-                ctx.lineWidth = 0.6;
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.strokeStyle = `rgba(${r},${g},${bl},${al})`;
+                ctx.lineWidth = 0.7;
                 ctx.stroke();
+              }
+            }
+
+            // Mouse connections — bright purple tendrils
+            if (mx !== null) {
+              const dx = a.x - mx,
+                dy = a.y - my;
+              const d = Math.sqrt(dx * dx + dy * dy);
+              if (d < 200) {
+                const al = (1 - d / 200) * 0.6;
+                const grad = ctx.createLinearGradient(a.x, a.y, mx, my);
+                grad.addColorStop(0, `rgba(167,139,250,${al})`);
+                grad.addColorStop(1, `rgba(45,212,191,${al * 0.3})`);
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(mx, my);
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = 0.9;
+                ctx.stroke();
+                // repel
+                const f = (200 - d) / 200;
+                a.vx += (dx / d) * f * 0.35;
+                a.vy += (dy / d) * f * 0.35;
               }
             }
           }
 
-          // Mouse connections
-          if (mouse.x !== null) {
-            nodes.forEach((n) => {
-              const dx = n.x - mouse.x,
-                dy = n.y - mouse.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < 180) {
-                const al = (1 - dist / 180) * 0.5;
-                ctx.beginPath();
-                ctx.moveTo(n.x, n.y);
-                ctx.lineTo(mouse.x, mouse.y);
-                ctx.strokeStyle = `rgba(167,139,250,${al})`;
-                ctx.lineWidth = 0.8;
-                ctx.stroke();
-                // repel
-                n.vx += (dx / dist) * 0.3;
-                n.vy += (dy / dist) * 0.3;
-              }
-            });
-          }
-
-          // Draw + move nodes
-          nodes.forEach((n) => {
+          // Draw + update nodes
+          for (const n of nodes) {
             n.x += n.vx;
             n.y += n.vy;
-            n.vx *= 0.99;
-            n.vy *= 0.99;
-            if (n.x < 0 || n.x > W) n.vx *= -1;
-            if (n.y < 0 || n.y > H) n.vy *= -1;
-            const pulse =
-              n.al * (0.7 + 0.3 * Math.sin(frame * 0.02 + n.x * 0.01));
+            n.vx *= 0.995;
+            n.vy *= 0.995;
+            if (n.x < 0) {
+              n.x = 0;
+              n.vx = Math.abs(n.vx);
+            }
+            if (n.x > W) {
+              n.x = W;
+              n.vx = -Math.abs(n.vx);
+            }
+            if (n.y < 0) {
+              n.y = 0;
+              n.vy = Math.abs(n.vy);
+            }
+            if (n.y > H) {
+              n.y = H;
+              n.vy = -Math.abs(n.vy);
+            }
+            n.pulse += n.pulseSpeed;
+            const al = n.baseAl * (0.6 + 0.4 * Math.sin(n.pulse));
+
+            // Glow
+            const grd = ctx.createRadialGradient(
+              n.x,
+              n.y,
+              0,
+              n.x,
+              n.y,
+              n.r * 3,
+            );
+            grd.addColorStop(0, `rgba(${n.col},${al})`);
+            grd.addColorStop(1, `rgba(${n.col},0)`);
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r * 3, 0, Math.PI * 2);
+            ctx.fillStyle = grd;
+            ctx.fill();
+
+            // Core
             ctx.beginPath();
             ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${n.col},${pulse})`;
+            ctx.fillStyle = `rgba(${n.col},${Math.min(1, al + 0.3)})`;
             ctx.fill();
-          });
+          }
 
           requestAnimationFrame(tick);
         }
@@ -1812,10 +2082,9 @@
         tick();
       })();
 
-      /* ═══════════════════════════════════════
+      /* ═══════════════════════════════════
    SKILLS — Physics bubble animation
-   (like Krishna Panchal's portfolio)
-═══════════════════════════════════════ */
+═══════════════════════════════════ */
       (function () {
         const cv = document.getElementById("skills-canvas");
         const ctx = cv.getContext("2d");
@@ -1824,31 +2093,33 @@
           H,
           bubbles = [],
           mouse = { x: null, y: null },
-          hovering = null;
+          animFrame;
 
         const skills = [
-          { label: "Python", size: 52, col: "167,139,250" },
-          { label: "TensorFlow", size: 44, col: "45,212,191" },
-          { label: "PyTorch", size: 42, col: "244,114,182" },
-          { label: "LangChain", size: 40, col: "167,139,250" },
-          { label: "LangGraph", size: 38, col: "96,165,250" },
-          { label: "scikit-learn", size: 36, col: "45,212,191" },
-          { label: "Claude API", size: 34, col: "167,139,250" },
-          { label: "ChromaDB", size: 32, col: "251,146,60" },
+          { label: "Python", size: 54, col: "167,139,250" },
+          { label: "TensorFlow", size: 46, col: "45,212,191" },
+          { label: "PyTorch", size: 43, col: "244,114,182" },
+          { label: "LangChain", size: 42, col: "167,139,250" },
+          { label: "LangGraph", size: 40, col: "96,165,250" },
+          { label: "scikit-learn", size: 37, col: "45,212,191" },
+          { label: "Claude API", size: 35, col: "167,139,250" },
+          { label: "ChromaDB", size: 33, col: "251,146,60" },
+          { label: "HuggingFace", size: 32, col: "251,146,60" },
+          { label: "AWS", size: 31, col: "251,146,60" },
           { label: "Streamlit", size: 30, col: "96,165,250" },
-          { label: "AWS", size: 30, col: "251,146,60" },
-          { label: "Pandas", size: 28, col: "45,212,191" },
-          { label: "pgvector", size: 26, col: "167,139,250" },
+          { label: "Pandas", size: 30, col: "45,212,191" },
+          { label: "Groq", size: 28, col: "244,114,182" },
+          { label: "pgvector", size: 27, col: "167,139,250" },
           { label: "Docker", size: 26, col: "96,165,250" },
-          { label: "Keras", size: 24, col: "244,114,182" },
-          { label: "SQL", size: 24, col: "45,212,191" },
-          { label: "spaCy", size: 22, col: "74,222,128" },
-          { label: "NumPy", size: 22, col: "45,212,191" },
-          { label: "HuggingFace", size: 28, col: "251,146,60" },
-          { label: "Power BI", size: 20, col: "96,165,250" },
-          { label: "Flask", size: 20, col: "74,222,128" },
+          { label: "Keras", size: 25, col: "244,114,182" },
+          { label: "SQL", size: 25, col: "45,212,191" },
+          { label: "n8n", size: 25, col: "74,222,128" },
+          { label: "spaCy", size: 23, col: "74,222,128" },
+          { label: "NumPy", size: 23, col: "45,212,191" },
+          { label: "Power BI", size: 22, col: "96,165,250" },
           { label: "BGE-M3", size: 22, col: "167,139,250" },
-          { label: "BM25", size: 20, col: "96,165,250" },
+          { label: "BM25", size: 21, col: "96,165,250" },
+          { label: "Flask", size: 21, col: "74,222,128" },
           { label: "Plotly", size: 20, col: "244,114,182" },
         ];
 
@@ -1859,154 +2130,173 @@
           cv.width = W * dpr;
           cv.height = H * dpr;
           ctx.scale(dpr, dpr);
-          placeAll();
+          placeBubbles();
         }
 
-        function placeAll() {
+        function placeBubbles() {
           bubbles = [];
           const sorted = [...skills].sort((a, b) => b.size - a.size);
           for (const sk of sorted) {
-            const r = sk.size * 0.62 + 4;
+            const r = sk.size * 0.64 + 4;
             let x,
               y,
               ok = false;
-            for (let t = 0; t < 400 && !ok; t++) {
+            for (let t = 0; t < 500 && !ok; t++) {
               x = r + Math.random() * (W - r * 2);
               y = r + Math.random() * (H - r * 2);
               ok = bubbles.every((b) => {
                 const dx = b.x - x,
                   dy = b.y - y;
-                return Math.sqrt(dx * dx + dy * dy) > b.r + r + 6;
+                return Math.sqrt(dx * dx + dy * dy) > b.r + r + 8;
               });
             }
-            if (ok)
-              bubbles.push({
-                x,
-                y,
-                r,
-                sk,
-                vx: (Math.random() - 0.5) * 0.25,
-                vy: (Math.random() - 0.5) * 0.25,
-                tx: x,
-                ty: y,
-                scale: 1,
-                hovered: false,
-              });
+            if (!ok) continue;
+            bubbles.push({
+              x,
+              y,
+              r,
+              sk,
+              vx: (Math.random() - 0.5) * 0.28,
+              vy: (Math.random() - 0.5) * 0.28,
+              hovered: false,
+              pulse: Math.random() * Math.PI * 2,
+              pulseSpeed: Math.random() * 0.02 + 0.008,
+            });
           }
         }
 
         function tick() {
           ctx.clearRect(0, 0, W, H);
 
-          bubbles.forEach((b) => {
-            // gentle float
+          for (const b of bubbles) {
+            b.pulse += b.pulseSpeed;
             b.x += b.vx;
             b.y += b.vy;
-            // soft boundary bounce
-            if (b.x - b.r < 0) {
-              b.x = b.r;
+
+            // boundary
+            if (b.x - b.r < 2) {
+              b.x = b.r + 2;
               b.vx = Math.abs(b.vx);
             }
-            if (b.x + b.r > W) {
-              b.x = W - b.r;
+            if (b.x + b.r > W - 2) {
+              b.x = W - b.r - 2;
               b.vx = -Math.abs(b.vx);
             }
-            if (b.y - b.r < 0) {
-              b.y = b.r;
+            if (b.y - b.r < 2) {
+              b.y = b.r + 2;
               b.vy = Math.abs(b.vy);
             }
-            if (b.y + b.r > H) {
-              b.y = H - b.r;
+            if (b.y + b.r > H - 2) {
+              b.y = H - b.r - 2;
               b.vy = -Math.abs(b.vy);
             }
+
             // soft separation
-            bubbles.forEach((o) => {
-              if (o === b) return;
+            for (const o of bubbles) {
+              if (o === b) continue;
               const dx = b.x - o.x,
                 dy = b.y - o.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              const minD = b.r + o.r + 4;
-              if (dist < minD && dist > 0) {
-                const f = ((minD - dist) / minD) * 0.06;
-                b.vx += (dx / dist) * f;
-                b.vy += (dy / dist) * f;
-                o.vx -= (dx / dist) * f;
-                o.vy -= (dy / dist) * f;
+              const d = Math.sqrt(dx * dx + dy * dy);
+              const minD = b.r + o.r + 6;
+              if (d < minD && d > 0) {
+                const f = ((minD - d) / minD) * 0.055;
+                b.vx += (dx / d) * f;
+                b.vy += (dy / d) * f;
+                o.vx -= (dx / d) * f;
+                o.vy -= (dy / d) * f;
               }
-            });
-            // speed limit
-            const spd = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
-            if (spd > 0.6) {
-              b.vx = (b.vx / spd) * 0.6;
-              b.vy = (b.vy / spd) * 0.6;
             }
 
-            // mouse interaction
+            // speed cap
+            const spd = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
+            if (spd > 0.55) {
+              b.vx = (b.vx / spd) * 0.55;
+              b.vy = (b.vy / spd) * 0.55;
+            }
+
+            // mouse
             b.hovered = false;
             if (mouse.x !== null) {
               const dx = b.x - mouse.x,
                 dy = b.y - mouse.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < b.r) {
-                b.hovered = true;
-              }
-              if (dist < b.r + 60 && dist > 0) {
-                b.vx += (dx / dist) * 0.12;
-                b.vy += (dy / dist) * 0.12;
+              const d = Math.sqrt(dx * dx + dy * dy);
+              if (d < b.r) b.hovered = true;
+              if (d < b.r + 70 && d > 0) {
+                b.vx += (dx / d) * 0.14;
+                b.vy += (dy / d) * 0.14;
               }
             }
 
-            // draw
             const col = b.sk.col;
-            const alpha = b.hovered ? 0.25 : 0.1;
+            const pulseFactor = 0.7 + 0.3 * Math.sin(b.pulse);
+            const bgAl = b.hovered ? 0.22 : 0.08 * pulseFactor;
+            const borderAl = b.hovered ? 0.7 : 0.22 * pulseFactor;
+
+            // glow behind hovered bubble
+            if (b.hovered) {
+              const grd = ctx.createRadialGradient(
+                b.x,
+                b.y,
+                0,
+                b.x,
+                b.y,
+                b.r * 1.6,
+              );
+              grd.addColorStop(0, `rgba(${col},0.18)`);
+              grd.addColorStop(1, `rgba(${col},0)`);
+              ctx.beginPath();
+              ctx.arc(b.x, b.y, b.r * 1.6, 0, Math.PI * 2);
+              ctx.fillStyle = grd;
+              ctx.fill();
+            }
+
+            // circle
             ctx.beginPath();
             ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${col},${alpha})`;
+            ctx.fillStyle = `rgba(${col},${bgAl})`;
             ctx.fill();
-            ctx.strokeStyle = `rgba(${col},${b.hovered ? 0.6 : 0.22})`;
+            ctx.strokeStyle = `rgba(${col},${borderAl})`;
             ctx.lineWidth = b.hovered ? 1.5 : 1;
             ctx.stroke();
 
             // label
             const fs = Math.max(9, Math.min(12, b.r * 0.46));
             ctx.font = `${b.hovered ? 600 : 500} ${fs}px 'DM Sans',sans-serif`;
-            ctx.fillStyle = `rgba(${col},${b.hovered ? 1 : 0.75})`;
+            ctx.fillStyle = `rgba(${col},${b.hovered ? 1 : 0.72 * pulseFactor})`;
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillText(b.sk.label, b.x, b.y);
-          });
+          }
 
-          requestAnimationFrame(tick);
+          animFrame = requestAnimationFrame(tick);
         }
 
-        const el = document.getElementById("skills");
-        el.addEventListener("mousemove", (e) => {
+        const skillsSection = document.getElementById("skills");
+        skillsSection.addEventListener("mousemove", (e) => {
           const r = cv.getBoundingClientRect();
           mouse.x = e.clientX - r.left;
           mouse.y = e.clientY - r.top;
         });
-        el.addEventListener("mouseleave", () => {
+        skillsSection.addEventListener("mouseleave", () => {
           mouse.x = null;
           mouse.y = null;
         });
 
-        window.addEventListener("resize", () => {
-          resize();
-        });
+        window.addEventListener("resize", resize);
         resize();
         tick();
       })();
 
-      /* ═══════════════════════════════════════
+      /* ═══════════════════════════════════
    SCROLL FADE IN
-═══════════════════════════════════════ */
+═══════════════════════════════════ */
       const obs = new IntersectionObserver(
-        (e) => {
-          e.forEach((x) => {
-            if (x.isIntersecting) x.target.classList.add("vis");
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("vis");
           });
         },
-        { threshold: 0.1 },
+        { threshold: 0.08 },
       );
       document.querySelectorAll(".fi").forEach((el) => obs.observe(el));
     </script>
