@@ -1,675 +1,2014 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vaibhav Varshney | AI/ML Engineer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      :root {
+        --bg: #06070a;
+        --bg1: #0c0e13;
+        --bg2: #12151c;
+        --bg3: #191d27;
+        --border: rgba(255, 255, 255, 0.06);
+        --borderH: rgba(255, 255, 255, 0.13);
+        --text: #e8eaf0;
+        --text2: #6b7385;
+        --text3: #363c4a;
+        --purple: #a78bfa;
+        --pd: rgba(167, 139, 250, 0.1);
+        --pb: rgba(167, 139, 250, 0.22);
+        --teal: #2dd4bf;
+        --td: rgba(45, 212, 191, 0.1);
+        --pink: #f472b6;
+        --pkd: rgba(244, 114, 182, 0.1);
+        --blue: #60a5fa;
+        --bld: rgba(96, 165, 250, 0.1);
+        --orange: #fb923c;
+        --od: rgba(251, 146, 60, 0.1);
+        --green: #4ade80;
+        --gd: rgba(74, 222, 128, 0.1);
+        --red: #f87171;
+        --rd: rgba(248, 113, 113, 0.1);
+        --ff: "DM Sans", sans-serif;
+        --serif: "Playfair Display", Georgia, serif;
+        --mono: "JetBrains Mono", monospace;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--ff);
+        font-size: 15px;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 3px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e2230;
+        border-radius: 2px;
+      }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaibhav Varshney - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 56px;
+        height: 64px;
+        background: rgba(6, 7, 10, 0.8);
+        backdrop-filter: blur(24px);
+        border-bottom: 1px solid var(--border);
+      }
+      .logo {
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 900;
+        color: var(--text);
+        text-decoration: none;
+      }
+      .logo span {
+        color: var(--purple);
+      }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text2);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--text);
+      }
 
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Vaibhav Varshney</h2>
-            </div>
-            <ul class="nav-menu">
-    <li><a href="#home" class="nav-link">Home</a></li>
-    <li><a href="#about" class="nav-link">About</a></li>
-    <li><a href="#experience" class="nav-link">Experience</a></li>
-    <li><a href="#education" class="nav-link">Education</a></li>
-    <li><a href="#projects" class="nav-link">Projects</a></li>
-    <li><a href="#research" class="nav-link">Research</a></li>
-    <li><a href="#professional-development" class="nav-link">Professional Development</a></li>
-    <li><a href="#skills" class="nav-link">Skills</a></li>
-    <li><a href="#blogs" class="nav-link">Blogs</a></li>
-    <li class="theme-toggle-container">
-        <button class="theme-toggle" id="theme-toggle">
-            <span class="toggle-icon">🌙</span>
-        </button>
-    </li>
-</ul>
+      /* HERO */
+      #hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        padding-top: 64px;
+      }
+      #hero-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-name {
+        font-family: var(--serif);
+        font-size: clamp(58px, 9vw, 116px);
+        font-weight: 900;
+        line-height: 0.93;
+        letter-spacing: -3px;
+        color: #fff;
+        margin-bottom: 16px;
+      }
+      .hero-role {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, var(--purple), var(--teal));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 48px;
+      }
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 44px;
+      }
+      .hstat {
+        padding: 0 28px;
+        border-right: 1px solid var(--border);
+      }
+      .hstat:last-child {
+        border-right: none;
+      }
+      .hstat-num {
+        font-family: var(--serif);
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 1;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .hstat-label {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text3);
+      }
+      .hero-btns {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+      }
+      .btn-fill {
+        padding: 13px 28px;
+        border-radius: 100px;
+        background: linear-gradient(135deg, #6d28d9, var(--purple));
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+      }
+      .btn-fill:hover {
+        transform: translateY(-2px);
+        opacity: 0.88;
+      }
+      .btn-ghost {
+        padding: 13px 28px;
+        border-radius: 100px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--borderH);
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.2s;
+      }
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.09);
+        transform: translateY(-2px);
+      }
+      .scroll-hint {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text3);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+      }
+      .scroll-hint::after {
+        content: "";
+        width: 1px;
+        height: 34px;
+        background: linear-gradient(to bottom, var(--text3), transparent);
+      }
 
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
+      /* SECTIONS */
+      .sw {
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: 88px 48px;
+      }
+      .sc {
+        text-align: center;
+      }
+      .sh {
+        font-family: var(--serif);
+        font-size: clamp(32px, 4.5vw, 50px);
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        line-height: 1.05;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
+      .ss {
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--purple);
+        margin-bottom: 52px;
+      }
+      .div {
+        max-width: 1060px;
+        margin: 0 auto;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ABOUT */
+      .ag {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: start;
+      }
+      .at p {
+        font-size: 15px;
+        color: var(--text2);
+        line-height: 1.85;
+        margin-bottom: 14px;
+      }
+      .at p strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .ac {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .acard {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        transition: border-color 0.2s;
+      }
+      .acard:hover {
+        border-color: var(--borderH);
+      }
+      .an {
+        font-family: var(--serif);
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 5px;
+      }
+      .al {
+        font-size: 12px;
+        color: var(--text2);
+        line-height: 1.4;
+      }
+
+      /* PROJECT GRID */
+      .pg {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .pc {
+        background: var(--bg1);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.25s,
+          border-color 0.25s;
+        position: relative;
+        overflow: hidden;
+        cursor: default;
+      }
+      .pc:hover {
+        transform: translateY(-4px);
+        border-color: var(--borderH);
+      }
+      .pc::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .pc:hover::before {
+        opacity: 1;
+      }
+      .pc-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 12px;
+      }
+      .badge {
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: var(--mono);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .badge::before {
+        content: "●";
+        font-size: 7px;
+      }
+      .b-agents {
+        background: var(--pd);
+        color: var(--purple);
+        border: 1px solid var(--pb);
+      }
+      .b-nlp {
+        background: var(--pkd);
+        color: var(--pink);
+        border: 1px solid rgba(244, 114, 182, 0.25);
+      }
+      .b-rag {
+        background: var(--bld);
+        color: var(--blue);
+        border: 1px solid rgba(96, 165, 250, 0.25);
+      }
+      .b-agentic {
+        background: var(--od);
+        color: var(--orange);
+        border: 1px solid rgba(251, 146, 60, 0.25);
+      }
+      .b-dl {
+        background: var(--td);
+        color: var(--teal);
+        border: 1px solid rgba(45, 212, 191, 0.25);
+      }
+      .b-xgb {
+        background: var(--gd);
+        color: var(--green);
+        border: 1px solid rgba(74, 222, 128, 0.25);
+      }
+      .b-mlops {
+        background: var(--rd);
+        color: var(--red);
+        border: 1px solid rgba(248, 113, 113, 0.25);
+      }
+      .gh-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        color: var(--text3);
+        text-decoration: none;
+        font-size: 12px;
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      .gh-link:hover {
+        border-color: var(--purple);
+        color: var(--purple);
+      }
+      .pname {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1.3;
+        margin-bottom: 4px;
+      }
+      .ptag-line {
+        font-size: 11px;
+        color: var(--text3);
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+      .pdesc {
+        font-size: 12px;
+        color: var(--text2);
+        line-height: 1.7;
+        flex: 1;
+        margin-bottom: 16px;
+      }
+      .pm {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .met {
+        background: var(--bg3);
+        border-radius: 8px;
+        padding: 8px 10px;
+        flex: 1;
+        min-width: 0;
+      }
+      .mv {
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 500;
+        display: block;
+        line-height: 1;
+      }
+      .ml {
+        font-size: 10px;
+        color: var(--text3);
+        margin-top: 3px;
+      }
+      .ptags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .ptag {
+        font-family: var(--mono);
+        font-size: 10px;
+        padding: 3px 7px;
+        border-radius: 4px;
+        background: var(--bg3);
+        color: var(--text2);
+        border: 1px solid var(--border);
+      }
+
+      /* EXPERIENCE */
+      .tl {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .tli {
+        display: grid;
+        grid-template-columns: 1fr 36px 1fr;
+        align-items: start;
+      }
+      .tl-mid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 22px;
+      }
+      .tl-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--purple);
+        box-shadow: 0 0 14px var(--purple);
+        flex-shrink: 0;
+      }
+      .tl-line {
+        width: 1px;
+        flex: 1;
+        min-height: 50px;
+        background: linear-gradient(
+          to bottom,
+          rgba(167, 139, 250, 0.4),
+          transparent
+        );
+        margin-top: 6px;
+      }
+      .tc {
+        background: var(--bg1);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 24px 26px;
+        transition: border-color 0.2s;
+      }
+      .tc:hover {
+        border-color: var(--borderH);
+      }
+      .tperiod {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--purple);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .tperiod::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--purple);
+      }
+      .trole {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+      .tco {
+        font-size: 12px;
+        color: var(--text3);
+        margin-bottom: 14px;
+      }
+      .tbl {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+      .tbl li {
+        font-size: 12px;
+        color: var(--text2);
+        line-height: 1.6;
+        padding-left: 16px;
+        position: relative;
+      }
+      .tbl li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--purple);
+        font-size: 10px;
+        top: 3px;
+      }
+      .tbl li strong {
+        color: var(--text);
+      }
+      .ttags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 12px;
+      }
+      .ttag {
+        font-size: 10px;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background: var(--bg3);
+        color: var(--text2);
+        border: 1px solid var(--border);
+      }
+
+      /* EDUCATION */
+      .eg {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .ec {
+        background: var(--bg1);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 28px;
+        position: relative;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .ec::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--purple), var(--teal));
+      }
+      .ec:hover {
+        border-color: var(--borderH);
+      }
+      .eperiod {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--purple);
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .eperiod::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+      }
+      .edeg {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+      .esch {
+        font-size: 13px;
+        color: var(--teal);
+        font-weight: 500;
+        margin-bottom: 2px;
+      }
+      .egpa {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text3);
+        margin-bottom: 16px;
+      }
+      .echips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .chip {
+        font-size: 10px;
+        padding: 3px 9px;
+        border-radius: 4px;
+        background: var(--bg3);
+        color: var(--text3);
+        border: 1px solid var(--border);
+      }
+
+      /* SKILLS — animated bubbles canvas */
+      #skills-canvas {
+        display: block;
+        width: 100%;
+        height: 280px;
+        cursor: default;
+        margin-bottom: 48px;
+      }
+
+      .sg-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .sg {
+        background: var(--bg1);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        transition: border-color 0.2s;
+      }
+      .sg:hover {
+        border-color: var(--borderH);
+      }
+      .sg-t {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text3);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+      .sg-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .stag {
+        font-family: var(--mono);
+        font-size: 10px;
+        padding: 4px 9px;
+        border-radius: 5px;
+        background: var(--bg3);
+        color: var(--text2);
+        border: 1px solid var(--border);
+        transition: all 0.15s;
+        cursor: default;
+      }
+      .stag:hover {
+        border-color: var(--pb);
+        color: var(--purple);
+        background: var(--pd);
+      }
+
+      /* RESEARCH */
+      .pub {
+        background: var(--bg1);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 28px 32px;
+        display: flex;
+        gap: 28px;
+        align-items: center;
+        transition: border-color 0.2s;
+      }
+      .pub:hover {
+        border-color: var(--borderH);
+      }
+      .pub-ico {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--pd);
+        border: 1px solid var(--pb);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 18px;
+      }
+      .pub-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+      .pub-meta {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text3);
+      }
+      .pub-link {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--purple);
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 1px solid rgba(167, 139, 250, 0.25);
+        border-radius: 8px;
+        white-space: nowrap;
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+      .pub-link:hover {
+        background: var(--pd);
+      }
+
+      /* BLOGS */
+      .bl {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .bi {
+        background: var(--bg1);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .bi:hover {
+        border-color: var(--borderH);
+        background: var(--bg2);
+      }
+      .bsrc {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--text3);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .btit {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 5px;
+        line-height: 1.3;
+      }
+      .bdesc {
+        font-size: 12px;
+        color: var(--text2);
+        line-height: 1.6;
+        max-width: 620px;
+      }
+      .barr {
+        font-size: 18px;
+        color: var(--text3);
+        flex-shrink: 0;
+        transition: color 0.2s;
+      }
+      .bi:hover .barr {
+        color: var(--purple);
+      }
+
+      /* VOLUNTEER */
+      .vc {
+        background: var(--bg1);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 30px 34px;
+        display: flex;
+        gap: 22px;
+        align-items: flex-start;
+        transition: border-color 0.2s;
+      }
+      .vc:hover {
+        border-color: var(--borderH);
+      }
+      .vico {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background: var(--pd);
+        border: 1px solid var(--pb);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+      .vr {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 3px;
+      }
+      .vo {
+        font-size: 13px;
+        color: var(--teal);
+        font-weight: 500;
+        margin-bottom: 3px;
+      }
+      .vp {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text3);
+        margin-bottom: 14px;
+      }
+
+      /* CONTACT */
+      #contact {
+        background: var(--bg1);
+        border-top: 1px solid var(--border);
+      }
+      .cw {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 100px 48px;
+        text-align: center;
+      }
+      .csub {
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--purple);
+        margin-bottom: 12px;
+      }
+      .ch {
+        font-family: var(--serif);
+        font-size: clamp(36px, 5vw, 58px);
+        font-weight: 800;
+        letter-spacing: -2px;
+        line-height: 1.05;
+        margin-bottom: 14px;
+      }
+      .cdesc {
+        font-size: 16px;
+        color: var(--text2);
+        margin-bottom: 44px;
+        line-height: 1.7;
+      }
+      .cpills {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 44px;
+      }
+      .cpill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 20px;
+        border-radius: 12px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .cpill:hover {
+        border-color: var(--borderH);
+        background: var(--bg3);
+      }
+      .cpill-ico {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+      }
+      .cpill-lbl {
+        font-size: 10px;
+        color: var(--text3);
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        text-align: left;
+      }
+      .cpill-val {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        text-align: left;
+      }
+
+      footer {
+        text-align: center;
+        padding: 24px 48px;
+        border-top: 1px solid var(--border);
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text3);
+      }
+
+      /* FADE */
+      .fi {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fi.vis {
+        opacity: 1;
+        transform: none;
+      }
+      .fi.d1 {
+        transition-delay: 0.08s;
+      }
+      .fi.d2 {
+        transition-delay: 0.16s;
+      }
+      .fi.d3 {
+        transition-delay: 0.24s;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="#hero">VV<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#blogs">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-            </div>
+    <!-- HERO -->
+    <section id="hero">
+      <canvas id="hero-canvas"></canvas>
+      <div class="hero-content">
+        <div class="hero-name">Vaibhav Varshney</div>
+        <div class="hero-role">AI / ML Engineer</div>
+        <div class="hero-stats">
+          <div class="hstat">
+            <span class="hstat-num" style="color: var(--purple)">6+</span
+            ><span class="hstat-label">Projects</span>
+          </div>
+          <div class="hstat">
+            <span class="hstat-num" style="color: var(--teal)">97%</span
+            ><span class="hstat-label">Peak Accuracy</span>
+          </div>
+          <div class="hstat">
+            <span class="hstat-num" style="color: var(--pink)">10K+</span
+            ><span class="hstat-label">Records Managed</span>
+          </div>
+          <div class="hstat">
+            <span class="hstat-num" style="color: var(--blue)">8.59</span
+            ><span class="hstat-label">GPA</span>
+          </div>
         </div>
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span>👋 Welcome to my portfolio</span>
-                </div>
-                <h1 class="hero-title">Hi, I'm <span class="highlight">Vaibhav Varshney</span></h1>
-                <p class="hero-subtitle">Data Scientist • ML Engineer • DevOps Enthusiast</p>
-                <p class="hero-description">
-                    Passionate about using data and machine learning to build impactful solutions from plant disease
-                    detection to scalable ML systems.
-                    Currently pursuing an MS in Data Science at University of Maryland, College Park.
-                </p>
-                <div class="hero-buttons">
-                    <a href="Resume.pdf" class="btn btn-primary" target="_blank">
-                        <i class="fas fa-download"></i>
-                        Download Resume
-                    </a>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/vaibhav-varshney-vv/" class="social-link" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/VaibhaVarshney" class="social-link" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://medium.com/@varshney2vaibhav" class="social-link" target="_blank">
-        <i class="fab fa-medium"></i>
-    </a>
-                    <a href="mailto:varshney2vaibhav@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-fill">View My Work</a>
+          <a href="#contact" class="btn-ghost">Get in Touch</a>
         </div>
+      </div>
+      <div class="scroll-hint">Scroll</div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="profile-image">
-                        <img src="profile.jpg" alt="Vaibhav Varshney" class="profile-photo">
-                    </div>
-                </div>
-                <div class="about-text">
-                    <p>
-                        Hey there! I'm Vaibhav Varshney, a Data Science professional who loves turning raw data into
-                        meaningful decisions and scalable systems. Currently pursuing my MS in Data Science at the
-                        University of Maryland, College Park, I enjoy working across the entire data spectrum, from
-                        exploration and analysis to machine learning, deployment, and optimization.
-                    </p>
-                    <p>
-                        Over the past few years, I've built projects that blend research and real-world impact, like a
-                        Plant Disease Detection system trained on 70k+ images and deployed using Streamlit and AWS, and
-                        automated ERP workflows during my internship at Mavio Solutions Pvt. Ltd.
-                    </p>
-                    <p>
-                        What excites me most is building solutions that truly work, models that aren't just accurate in
-                        a notebook, but perform reliably in production. Whether it's data analysis, AI development, or
-                        MLOps, I love exploring the edge where ideas meet implementation.
-                    </p>
-                </div>
-            </div>
+    <!-- ABOUT -->
+    <div id="about" class="sw fi">
+      <div class="ag">
+        <div class="at">
+          <div class="ss" style="text-align: left; margin-bottom: 14px">
+            About Me
+          </div>
+          <h2
+            class="sh"
+            style="text-align: left; font-size: 36px; margin-bottom: 22px"
+          >
+            Building at the edge of ideas &amp; implementation
+          </h2>
+          <p>
+            Hey! I'm <strong>Vaibhav Varshney</strong>, a Data Science
+            professional who loves turning raw data into meaningful decisions
+            and scalable systems. Currently pursuing my
+            <strong
+              >MS in Data Science at the University of Maryland, College
+              Park</strong
+            >.
+          </p>
+          <p>
+            I build end-to-end AI systems — from multi-agent LangGraph pipelines
+            and clinical NLP dashboards to RAG systems with eval harnesses and
+            agentic financial monitors. I care about
+            <strong>production-grade ML</strong>, not just notebook demos.
+          </p>
+          <p>
+            Whether it's deep learning, LLMs, or MLOps — I thrive where
+            <strong>rigorous engineering meets real-world impact</strong>.
+          </p>
+          <div
+            style="display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap"
+          >
+            <a
+              href="#"
+              class="btn-fill"
+              style="font-size: 13px; padding: 11px 24px"
+              >Download Resume</a
+            >
+            <a
+              href="https://github.com/VaibhaVarshney"
+              class="btn-ghost"
+              style="font-size: 13px; padding: 11px 24px"
+              >GitHub ↗</a
+            >
+          </div>
         </div>
+        <div class="ac">
+          <div class="acard fi d1">
+            <div class="an" style="color: var(--purple)">6+</div>
+            <div class="al">AI/ML Projects<br />Built & Deployed</div>
+          </div>
+          <div class="acard fi d2">
+            <div class="an" style="color: var(--teal)">8.59</div>
+            <div class="al">GPA — BTech CS<br />MIT WPU</div>
+          </div>
+          <div class="acard fi d2">
+            <div class="an" style="color: var(--pink)">97%</div>
+            <div class="al">Model Accuracy<br />Plant Detection</div>
+          </div>
+          <div class="acard fi d3">
+            <div class="an" style="color: var(--blue)">200+</div>
+            <div class="al">Eval Incidents<br />Golden Dataset</div>
+          </div>
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>Intern Developer</h3>
-                        <p class="institution">Mavio Solutions Pvt. Ltd.</p>
-                        <p class="duration">Aug 2023 – Dec 2023</p>
-                    </div>
-                    <div class="experience-content">
-                        <div class="experience-text collapsed">
-                            <ul class="description-list">
-                                <li>
-                                    <i class="fas fa-cogs"></i>
-                                    <span>Developed and customized ERP solutions using Frappe/ERPNext, Python, and
-                                        JavaScript; processed large client datasets to ensure data accuracy and
-                                        integration.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-lightbulb"></i>
-                                    <span>Built custom ERP workflows and introduced a data validation framework that improved system efficiency by 25%, reduced redundancy, and minimized manual tasks while also aligning ERP systems with Salesforce CRM by proposing optimized data reporting structures and process enhancements to strengthen customer relationship management and business insights. Additionally, collaborated closely with the Business Analyst and cross-functional teams to deliver scalable, data-driven solutions that integrated software development with analytics for improved operational outcomes.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-microscope"></i>
-                                    <span>Designed and configured data models, business rules, and complex server-side logic to streamline ERP operations and enhance system reliability.</span>
-                                </li>
-                                
-                                <li>
-                                    <i class="fas fa-users-cog"></i>
-                                    <span>Managed, cleaned, and integrated 10,000+ client asset records using Pandas, Excel, and SQL, ensuring high-quality data processing and a seamless migration experience.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-lightbulb"></i>
-                                    <span>Led the development of comprehensive Salesforce CRM solutions encompassing sales, customer service, marketing automation, e-commerce, analytics, and application development. This initiative streamlined operations and contributed to substantial gains in operational efficiency and customer satisfaction.</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                </div>
-
-                
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>Master of Science - MS, Data Science</h3>
-                        <p class="institution">University of Maryland, College Park</p>
-                        <p class="duration">Aug 2025 – Present</p>
-                        <!-- <p class="grade">Grade: 4/4</p> -->
-                    </div>
-                    <div class="experience-content">
-                        <div class="experience-text collapsed">
-                            <div class="skills-highlight">
-                                <h4 class="skills-title">
-                                    <i class="fas fa-tools"></i>
-                                    Key Skills:
-                                </h4>
-                                <div class="skills-tags">
-                                    <span class="skill-tag">Python</span>
-                                    <span class="skill-tag">SQL</span>
-                                    <span class="skill-tag">Machine Learning</span>
-                                    <span class="skill-tag">AI/LLM</span>
-                                    <span class="skill-tag">Transformer Models</span>
-                                    <span class="skill-tag">Natural Language Processing</span>
-                                    <span class="skill-tag">Generative AI</span>
-                                    <span class="skill-tag">Prompt Engineering</span>
-                                    <span class="skill-tag">Distributed Database Systems</span>
-                                    <span class="skill-tag">Software Engineering</span>
-                                    <span class="skill-tag">Docker</span>
-                                    <span class="skill-tag">GitHub</span>
-                                    <span class="skill-tag">Prisma</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                </div>
-
-                
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>Bachelor of Technology - BTech, Computer Science</h3>
-                        <p class="institution">MIT World Peace University</p>
-                        <p class="duration">Sep 2020 – Jul 2024</p>
-                        <p class="grade">Grade: 8.59/10</p>
-                    </div>
-                    <div class="experience-content">
-                        <div class="experience-text collapsed">
-                            <div class="skills-highlight">
-                                <h4 class="skills-title">
-                                    <i class="fas fa-tools"></i>
-                                    Key Skills:
-                                </h4>
-                                <div class="skills-tags">
-                                    <span class="skill-tag">Databases</span>
-                                    <span class="skill-tag">Computer Science</span>
-                                    <span class="skill-tag">Data Visualization</span>
-                                    <span class="skill-tag">Networks</span>
-                                    <span class="skill-tag">Cloud Computing</span>
-                                    <span class="skill-tag">Artificial Intelligence</span>
-                                    <span class="skill-tag">Operating Systems</span>
-                                    <span class="skill-tag">Microsoft PowerPoint</span>
-                                    <span class="skill-tag">Communication</span>
-                                    <span class="skill-tag">Leadership</span>
-                                    <span class="skill-tag">Python</span>
-                                    <span class="skill-tag">CSS</span>
-                                    <span class="skill-tag">Programming</span>
-                                    <span class="skill-tag">Data Structures</span>
-                                    <span class="skill-tag">Public Speaking</span>
-                                    <span class="skill-tag">Java</span>
-                                    <span class="skill-tag">HTML</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>AI-Powered Career Recommendation & Resume Analyzer</h3>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-text collapsed">
-                            <ul class="description-list">
-                                <li>
-                                    <i class="fas fa-robot"></i>
-                                    <span>Developed an intelligent job recommendation system that analyzes resumes using
-                                        LLMs and Machine Learning to suggest ideal career roles based on skills and
-                                        experience.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-cogs"></i>
-                                    <span>Used LangChain with OpenAI and HuggingFace models to extract structured
-                                        information like skills, experience, and project details from resumes.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-brain"></i>
-                                    <span>Trained ML models (RandomForest, XGBoost) to predict job-fit probabilities for
-                                        roles such as Data Analyst, Data Scientist, ML Engineer, and AI Engineer.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>Integrated with Streamlit to create an interactive dashboard displaying
-                                        personalized job recommendations and feedback for career improvement.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <span>Deployed the system on AWS Elastic Beanstalk with scalable architecture and
-                                        seamless model-serving capabilities.</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Plant Disease Detection</h3>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-text collapsed">
-                            <ul class="description-list">
-                                <li>
-                                    <i class="fas fa-laptop-code"></i>
-                                    <span>Led a team to build a Plant Disease Detection system using TensorFlow/Keras;
-                                        trained on 70k+ images, applied data augmentation and transfer learning to reach
-                                        ~97% accuracy.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Implemented advanced user authentication with role-based access control
-                                        (RBAC), supporting admin and store manager roles to ensure secure and efficient
-                                        store operations</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-boxes"></i>
-                                    <span>Built real-time inventory management, automated order processing, and
-                                        comprehensive analytics dashboards</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-trophy"></i>
-                                    <span>Achieved 40% increase in user activity and 20% reduction in unauthorized login
-                                        attempts through strategic implementation of Celery for background task
-                                        processing</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Heart Failure Prediction</h3>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-text collapsed">
-                            <ul class="description-list">
-                                <li>
-                                    <i class="fas fa-database"></i>
-                                    <span>Built predictive models for heart failure and customer analytics using
-                                        scikit-learn and PyTorch; compared multiple algorithms and deployed demos with
-                                        Streamlit.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-search"></i>
-                                    <span>Focused on identifying operational inefficiencies and implementing data-driven
-                                        solutions to improve business performance across multiple departments</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>Delivered actionable insights through advanced data analysis techniques and
-                                        predictive modeling that were adopted by key stakeholders</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-trophy"></i>
-                                    <span>Resulted in 20% reduction in operational costs and 15% improvement in overall
-                                        efficiency, establishing a foundation for ongoing data-driven decision
-                                        making</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="read-more-btn">Read More</button>
-                    </div>
-                </div>
-
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- Research & Publications Section -->
-<section id="research" class="research">
-    <div class="container">
-        <h2 class="section-title">Research & Publications</h2>
-        <div class="research-grid">
-
-            <div class="research-card">
-                <div class="research-header">
-                    <div class="research-title-row">
-                        <h3>Advancements in Plant Disease Detection Technologies</h3>
-                        <span class="date">September 2024</span>
-                    </div>
-                </div>
-                <div class="research-content">
-                    <p class="journal">YMER Journal, ISSN: 0044-0477, Volume 23, Issue 09</p>
-                    <div class="research-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">Keras</span>
-                        <span class="tech-tag">Deep Learning</span>
-                    </div>
-                    <div class="research-description collapsed">
-                        <ul class="description-list">
-                            <li>
-                                <i class="fas fa-brain"></i>
-                                <span>Researched and analyzed modern plant disease detection techniques leveraging Artificial Intelligence (AI) and Machine Learning (ML) for early and accurate crop disease identification.</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-seedling"></i>
-                                <span>Implemented Convolutional Neural Networks (CNNs) to analyze plant leaf images and identify disease patterns with enhanced precision.</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-sync-alt"></i>
-                                <span>Applied Transfer Learning methods to improve model performance while reducing training time and data requirements.</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-microscope"></i>
-                                <span>Explored the role of Hyperspectral Imaging in detecting subtle physiological changes in plants before visible symptoms appear.</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-trophy"></i>
-                                <span>Published findings in the YMER Journal demonstrating the potential of deep learning and spectral imaging in advancing agricultural technology for sustainable crop management.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="research-links">
-                        <button class="read-more-btn">Read More</button>
-                        <a href="https://ymerdigital.com/uploads/YMER230951.pdf" class="research-link" target="_blank">View Paper</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+      </div>
     </div>
-</section>
 
-<section id="blogs" class="blogs">
-    <div class="container">
-        <h2 class="section-title">Blogs & Articles</h2>
-        <div class="projects-grid">
+    <div class="div"></div>
 
-            <!-- Blog 1: LinkedIn -->
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>Agentic AI vs. AI Agents vs. Generative AI</h3>
-                    <span class="date">Published on LinkedIn & Medium</span>
-                </div>
-                <div class="project-content">
-                    <div class="project-text collapsed">
-                        <ul class="description-list">
-                           <li>
-                                <i class="fas fa-brain"></i>
-                                <span>Clarifies the differences between Agentic AI, AI Agents, and Generative AI — breaking down how each operates and their real-world use cases.</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-network-wired"></i>
-                                <span>Highlights how Agentic AI introduces autonomy, decision-making, and goal-driven behavior beyond traditional LLM capabilities.</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-lightbulb"></i>
-                                <span>Explains how the evolution from Generative AI to Agentic AI marks a paradigm shift in intelligent system design and human-AI collaboration.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="research-links">
-                        <button class="read-more-btn">Read More</button>
-                        <a href="https://www.linkedin.com/pulse/agentic-ai-vs-agents-generative-vaibhav-varshney-lutrf/?trackingId=GmAX2ecCTjqr5dbpjgBAaQ%3D%3D" 
-                           class="research-link" target="_blank">Read on LinkedIn</a>
-                    </div>
-                </div>
+    <!-- PROJECTS -->
+    <div id="projects" class="sw fi">
+      <div class="sc">
+        <h2 class="sh">Projects</h2>
+        <div class="ss">What I've Built</div>
+      </div>
+      <div class="pg">
+        <!-- TriageAI -->
+        <div class="pc" style="--accent: var(--purple)">
+          <div
+            class="pc::before"
+            style="
+              background: linear-gradient(90deg, var(--purple), transparent);
+            "
+          ></div>
+          <div class="pc-top">
+            <span class="badge b-agents">Multi-Agent</span>
+            <a href="#" class="gh-link" title="GitHub">↗</a>
+          </div>
+          <div class="pname">TriageAI — Incident Triage System</div>
+          <div class="ptag-line">
+            LangGraph Multi-Agent · P0–P3 Classification
+          </div>
+          <div class="pdesc">
+            Multi-agent system that reads broken dashboards or log files,
+            classifies incident severity (P0–P3), pulls runbook steps from a
+            vector DB, assigns team ownership, and generates plain-English
+            digests — in under 8s. Differentiator: 200-incident golden eval
+            dataset scored automatically in CI.
+          </div>
+          <div class="pm">
+            <div class="met">
+              <span class="mv" style="color: var(--purple)">&lt;8s</span>
+              <div class="ml">Response Time</div>
             </div>
-
-            <!-- Blog 2: Medium -->
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>The Evolution of Generative AI: From Text to Multimodal Models</h3>
-                    <span class="date">Published on Medium</span>
-                </div>
-                <div class="project-content">
-                    <div class="project-text collapsed">
-                        <ul class="description-list">
-                            <li>
-                                <i class="fas fa-pencil-alt"></i>
-                                <span>Delves deeper into the journey of Generative AI models and their transformation into multimodal reasoning systems.</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-robot"></i>
-                                <span>Examines the rise of LLMs and the bridge between content generation, decision-making, and autonomous AI agents.</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-user-graduate"></i>
-                                <span>Written with a focus on simplifying complex AI concepts for learners, researchers, and data professionals.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="research-links">
-                        <button class="read-more-btn">Read More</button>
-                        <a href="https://medium.com/@varshney2vaibhav/the-evolution-of-generative-ai-from-text-to-multimodal-models-xxxx" 
-                           class="research-link" target="_blank">Read on Medium</a>
-                    </div>
-                </div>
+            <div class="met">
+              <span class="mv" style="color: var(--teal)">200</span>
+              <div class="ml">Eval Dataset</div>
             </div>
-
+            <div class="met">
+              <span class="mv" style="color: var(--orange)">4</span>
+              <div class="ml">Specialist Agents</div>
+            </div>
+          </div>
+          <div class="ptags">
+            <span class="ptag">LangGraph</span
+            ><span class="ptag">Claude API</span
+            ><span class="ptag">pgvector</span>
+            <span class="ptag">Supabase</span><span class="ptag">BGE-M3</span
+            ><span class="ptag">CI Evals</span>
+          </div>
         </div>
+
+        <!-- TherapyLens -->
+        <div class="pc">
+          <div class="pc-top">
+            <span class="badge b-nlp">Clinical NLP</span>
+            <a href="#" class="gh-link" title="GitHub">↗</a>
+          </div>
+          <div class="pname">TherapyLens — Clinical NLP Pipeline</div>
+          <div class="ptag-line">Groq LLaMA-3.3-70b · HIPAA-Aware Design</div>
+          <div class="pdesc">
+            6-stage clinical NLP pipeline processing 158 therapy transcripts
+            across 4 demographic cohorts. Emotion detection, topic modeling,
+            engagement signal extraction, LLM summarization, and a demographic
+            bias audit flagging a 0.172 sentiment gap between veteran and adult
+            cohorts.
+          </div>
+          <div class="pm">
+            <div class="met">
+              <span class="mv" style="color: var(--pink)">158</span>
+              <div class="ml">Sessions</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--purple)">0.172</span>
+              <div class="ml">Bias Gap</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--teal)">7-pg</span>
+              <div class="ml">Dashboard</div>
+            </div>
+          </div>
+          <div class="ptags">
+            <span class="ptag">Groq LLaMA</span
+            ><span class="ptag">Presidio</span><span class="ptag">spaCy</span>
+            <span class="ptag">Streamlit</span><span class="ptag">TF-IDF</span
+            ><span class="ptag">NLP</span>
+          </div>
+        </div>
+
+        <!-- Stratum -->
+        <div class="pc">
+          <div class="pc-top">
+            <span class="badge b-rag">RAG</span>
+            <a href="#" class="gh-link" title="GitHub">↗</a>
+          </div>
+          <div class="pname">Stratum — RAG Document Q&A</div>
+          <div class="ptag-line">
+            Hybrid Retrieval · LLM-as-Judge Eval Harness
+          </div>
+          <div class="pdesc">
+            Production-grade RAG pipeline letting users query any PDF in plain
+            English with grounded, cited answers. Built-in LLM-as-judge eval
+            harness automatically scores faithfulness, relevance, and
+            completeness across 3 retrieval strategies (hybrid, semantic, BM25)
+            with visual dashboard.
+          </div>
+          <div class="pm">
+            <div class="met">
+              <span class="mv" style="color: var(--blue)">3</span>
+              <div class="ml">Retrieval Modes</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--teal)">BM25</span>
+              <div class="ml">+ Dense Hybrid</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--purple)">Auto</span>
+              <div class="ml">CI Eval</div>
+            </div>
+          </div>
+          <div class="ptags">
+            <span class="ptag">LangChain</span><span class="ptag">ChromaDB</span
+            ><span class="ptag">Claude API</span>
+            <span class="ptag">HuggingFace</span
+            ><span class="ptag">Streamlit</span><span class="ptag">Plotly</span>
+          </div>
+        </div>
+
+        <!-- MDI Monitor -->
+        <div class="pc">
+          <div class="pc-top">
+            <span class="badge b-agentic">Agentic</span>
+            <a
+              href="https://github.com/VaibhaVarshney/Agentic_Mdi_Monitor"
+              class="gh-link"
+              title="GitHub"
+              >↗</a
+            >
+          </div>
+          <div class="pname">MDI Liquidity Monitor</div>
+          <div class="ptag-line">
+            FDIC API · Early Warning System · UMD Challenge
+          </div>
+          <div class="pdesc">
+            AI-powered early warning system for 144 minority depository
+            institutions (MDIs). Detects liquidity stress 60–90 days before
+            crisis by computing 4 key ratios from FDIC Call Report data, then
+            auto-matches at-risk banks to federal assistance programs (Fed
+            Discount Window, FHLB, CDFI) and generates CFO application briefs.
+          </div>
+          <div class="pm">
+            <div class="met">
+              <span class="mv" style="color: var(--orange)">144</span>
+              <div class="ml">MDIs Monitored</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--teal)">90d</span>
+              <div class="ml">Early Warning</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--purple)">4</span>
+              <div class="ml">Liquidity Ratios</div>
+            </div>
+          </div>
+          <div class="ptags">
+            <span class="ptag">Python</span><span class="ptag">FDIC API</span
+            ><span class="ptag">Claude API</span>
+            <span class="ptag">Streamlit</span><span class="ptag">Pandas</span
+            ><span class="ptag">Agentic AI</span>
+          </div>
+        </div>
+
+        <!-- Plant Disease -->
+        <div class="pc">
+          <div class="pc-top">
+            <span class="badge b-dl">Deep Learning</span>
+            <a href="#" class="gh-link" title="GitHub">↗</a>
+          </div>
+          <div class="pname">Plant Disease Detection System</div>
+          <div class="ptag-line">CNN + Transfer Learning · ~97% Accuracy</div>
+          <div class="pdesc">
+            Led a team building a deep learning system trained on 70k+ images
+            with TensorFlow/Keras, data augmentation, and transfer learning
+            reaching ~97% accuracy. Includes RBAC auth, real-time inventory
+            management, analytics dashboards, and Celery background tasks.
+          </div>
+          <div class="pm">
+            <div class="met">
+              <span class="mv" style="color: var(--teal)">97%</span>
+              <div class="ml">Accuracy</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--purple)">70K+</span>
+              <div class="ml">Images</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--pink)">40%</span>
+              <div class="ml">↑ User Activity</div>
+            </div>
+          </div>
+          <div class="ptags">
+            <span class="ptag">TensorFlow</span><span class="ptag">Keras</span>
+            <span class="ptag">Transfer Learning</span
+            ><span class="ptag">Streamlit</span><span class="ptag">AWS</span>
+          </div>
+        </div>
+
+        <!-- Career Recommender -->
+        <div class="pc">
+          <div class="pc-top">
+            <span class="badge b-xgb">ML · GenAI</span>
+            <a href="#" class="gh-link" title="GitHub">↗</a>
+          </div>
+          <div class="pname">AI Career Recommendation & Resume Analyzer</div>
+          <div class="ptag-line">LLM Resume Parsing · Job-Fit Prediction</div>
+          <div class="pdesc">
+            Intelligent job recommendation system using LangChain +
+            OpenAI/HuggingFace to extract structured info from resumes. Trained
+            RandomForest & XGBoost to predict job-fit probabilities for Data
+            Analyst, Data Scientist, ML Engineer, and AI Engineer roles.
+            Deployed on AWS Elastic Beanstalk.
+          </div>
+          <div class="pm">
+            <div class="met">
+              <span class="mv" style="color: var(--green)">4</span>
+              <div class="ml">Career Roles</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--purple)">AWS</span>
+              <div class="ml">Deployed</div>
+            </div>
+            <div class="met">
+              <span class="mv" style="color: var(--blue)">2</span>
+              <div class="ml">ML Models</div>
+            </div>
+          </div>
+          <div class="ptags">
+            <span class="ptag">LangChain</span><span class="ptag">OpenAI</span
+            ><span class="ptag">XGBoost</span>
+            <span class="ptag">Streamlit</span><span class="ptag">AWS EB</span>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
 
+    <div class="div"></div>
 
-    <!-- Professional Development Section -->
-    <section id="professional-development" class="professional-development">
-        <div class="container">
-            <h2 class="section-title">Professional Development</h2>
-            <div class="development-grid">
-                
-                <div class="development-card">
-                    <div class="development-header">
-                        <h3>Human Care International</h3>
-                        <span class="date">Jan 2022 – Present</span>
-                    </div>
-                    <div class="development-content">
-                        <p class="organization">Volunteer — Saksham Project</p>
-                        <div class="description">
-                            <ul class="description-list">
-                                <li>
-                                    <i class="fas fa-heart"></i>
-                                    <span>Taught digital literacy and basic computer skills to underprivileged and
-                                        orphan students to improve digital inclusion.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-star"></i>
-                                    <span>Supported elderly residents at Prem Dham with companionship and
-                                        daily-assistance activities, enhancing their quality of life.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-users"></i>
-                                    <span>Organized and delivered workshops on internet safety, productivity tools, and
-                                        basic computing to empower young girls and community members.</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-user-friends"></i>
-                                    <span>Adapted teaching methods to diverse age groups and learning needs, gaining
-                                        strong interpersonal and instructional experience.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    <!-- EXPERIENCE -->
+    <div id="experience" class="sw fi">
+      <div class="sc">
+        <h2 class="sh">Experience</h2>
+        <div class="ss">Where I've Worked</div>
+      </div>
+      <div class="tl">
+        <div class="tli">
+          <div class="tc">
+            <div class="tperiod">Aug 2023 – Dec 2023</div>
+            <div class="trole">Intern Developer</div>
+            <div class="tco">Mavio Solutions Pvt. Ltd. · India</div>
+            <ul class="tbl">
+              <li>
+                Developed ERP solutions using
+                <strong>Frappe/ERPNext, Python, and JavaScript</strong>;
+                processed large client datasets ensuring data accuracy.
+              </li>
+              <li>
+                Built custom workflows and validation framework improving system
+                efficiency by <strong>25%</strong>, reducing redundancy and
+                manual tasks.
+              </li>
+              <li>
+                Managed and integrated
+                <strong>10,000+ client asset records</strong> using Pandas,
+                Excel, and SQL for seamless migration.
+              </li>
+              <li>
+                Led comprehensive
+                <strong>Salesforce CRM development</strong> spanning sales,
+                marketing automation, e-commerce, and analytics.
+              </li>
+            </ul>
+            <div class="ttags">
+              <span class="ttag">Frappe/ERPNext</span
+              ><span class="ttag">Python</span
+              ><span class="ttag">Salesforce</span><span class="ttag">SQL</span
+              ><span class="ttag">Pandas</span>
             </div>
+          </div>
+          <div class="tl-mid">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div></div>
         </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- EDUCATION -->
+    <div id="education" class="sw fi">
+      <div class="sc">
+        <h2 class="sh">Education</h2>
+        <div class="ss">Academic Background</div>
+      </div>
+      <div class="eg">
+        <div class="ec">
+          <div class="eperiod">Aug 2025 – Present</div>
+          <div class="edeg">Master of Science — Data Science</div>
+          <div class="esch">University of Maryland, College Park</div>
+          <div class="egpa">Track: AI / ML Systems</div>
+          <div class="echips">
+            <span class="chip">Python</span><span class="chip">ML</span
+            ><span class="chip">AI/LLM</span><span class="chip">NLP</span
+            ><span class="chip">Generative AI</span
+            ><span class="chip">Transformer Models</span
+            ><span class="chip">Prompt Engineering</span
+            ><span class="chip">Docker</span>
+          </div>
+        </div>
+        <div class="ec">
+          <div class="eperiod">Sep 2020 – Jul 2024</div>
+          <div class="edeg">BTech — Computer Science Engineering</div>
+          <div class="esch">MIT World Peace University</div>
+          <div class="egpa" style="color: var(--teal)">GPA: 8.59 / 10</div>
+          <div class="echips">
+            <span class="chip">Databases</span><span class="chip">AI</span
+            ><span class="chip">Cloud Computing</span
+            ><span class="chip">Python</span><span class="chip">Java</span
+            ><span class="chip">Data Structures</span
+            ><span class="chip">Computer Vision</span
+            ><span class="chip">OS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- SKILLS -->
+    <div id="skills" class="sw fi">
+      <div class="sc">
+        <h2 class="sh">Skills</h2>
+        <div class="ss">Technical Toolkit</div>
+      </div>
+      <canvas id="skills-canvas"></canvas>
+      <div class="sg-grid">
+        <div class="sg">
+          <div class="sg-t">Languages</div>
+          <div class="sg-tags">
+            <span class="stag">Python</span><span class="stag">C++</span
+            ><span class="stag">SQL</span><span class="stag">JavaScript</span
+            ><span class="stag">HTML</span><span class="stag">CSS</span>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-t">ML / AI Frameworks</div>
+          <div class="sg-tags">
+            <span class="stag">TensorFlow</span><span class="stag">PyTorch</span
+            ><span class="stag">Keras</span
+            ><span class="stag">scikit-learn</span
+            ><span class="stag">LangChain</span
+            ><span class="stag">LangGraph</span
+            ><span class="stag">OpenAI API</span
+            ><span class="stag">HuggingFace</span>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-t">Data & Analytics</div>
+          <div class="sg-tags">
+            <span class="stag">Pandas</span><span class="stag">NumPy</span
+            ><span class="stag">Matplotlib</span
+            ><span class="stag">Seaborn</span><span class="stag">Power BI</span
+            ><span class="stag">Tableau</span><span class="stag">Plotly</span>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-t">Cloud & DevOps</div>
+          <div class="sg-tags">
+            <span class="stag">AWS (EB, S3)</span
+            ><span class="stag">Docker</span><span class="stag">Git</span
+            ><span class="stag">GitHub</span><span class="stag">CI/CD</span
+            ><span class="stag">Linux</span>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-t">Vector & RAG</div>
+          <div class="sg-tags">
+            <span class="stag">ChromaDB</span><span class="stag">pgvector</span
+            ><span class="stag">Supabase</span><span class="stag">BGE-M3</span
+            ><span class="stag">BM25</span><span class="stag">Hybrid RAG</span>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-t">Deployment & Web</div>
+          <div class="sg-tags">
+            <span class="stag">Streamlit</span><span class="stag">Flask</span
+            ><span class="stag">Frappe/ERPNext</span
+            ><span class="stag">Salesforce CRM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- RESEARCH -->
+    <div id="research" class="sw fi">
+      <div class="sc">
+        <h2 class="sh">Publications</h2>
+        <div class="ss">Research</div>
+      </div>
+      <div class="pub">
+        <div class="pub-ico">📄</div>
+        <div style="flex: 1">
+          <div class="pub-title">
+            Advancements in Plant Disease Detection Technologies
+          </div>
+          <div class="pub-meta">
+            V. Varshney et al. · YMER Journal ISSN 0044-0477 · Vol. 23 Issue 09
+            · September 2024
+          </div>
+          <div
+            style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px"
+          >
+            <span class="chip">Python</span><span class="chip">TensorFlow</span
+            ><span class="chip">Keras</span><span class="chip">CNNs</span
+            ><span class="chip">Transfer Learning</span>
+          </div>
+        </div>
+        <a
+          href="https://ymerdigital.com/uploads/YMER230951.pdf"
+          class="pub-link"
+          >View Paper ↗</a
+        >
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- BLOGS -->
+    <div id="blogs" class="sw fi">
+      <div class="sc">
+        <h2 class="sh">Blog & Writing</h2>
+        <div class="ss">Thoughts on AI</div>
+      </div>
+      <div class="bl">
+        <a
+          href="https://www.linkedin.com/pulse/agentic-ai-vs-agents-generative-vaibhav-varshney-lutrf/"
+          class="bi"
+        >
+          <div>
+            <div class="bsrc">LinkedIn · Article</div>
+            <div class="btit">Agentic AI vs. AI Agents vs. Generative AI</div>
+            <div class="bdesc">
+              Clarifies the differences between Agentic AI, AI Agents, and
+              Generative AI — how each operates, their real-world use cases, and
+              how the shift to Agentic AI marks a paradigm shift in intelligent
+              system design.
+            </div>
+          </div>
+          <div class="barr">↗</div>
+        </a>
+        <a href="https://medium.com/@varshney2vaibhav" class="bi">
+          <div>
+            <div class="bsrc">Medium · Article</div>
+            <div class="btit">
+              The Evolution of Generative AI: From Text to Multimodal Models
+            </div>
+            <div class="bdesc">
+              Examines the journey of Generative AI into multimodal reasoning
+              systems, the rise of LLMs, and the bridge between content
+              generation, decision-making, and autonomous AI agents.
+            </div>
+          </div>
+          <div class="barr">↗</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- VOLUNTEER -->
+    <div class="sw fi">
+      <div class="sc">
+        <h2 class="sh">Giving Back</h2>
+        <div class="ss">Volunteer Work</div>
+      </div>
+      <div class="vc">
+        <div class="vico">🌱</div>
+        <div>
+          <div class="vr">Volunteer — Saksham Project</div>
+          <div class="vo">Human Care International</div>
+          <div class="vp">Jan 2022 – Present</div>
+          <ul class="tbl">
+            <li>
+              Taught
+              <strong>digital literacy and basic computer skills</strong> to
+              underprivileged and orphan students to improve digital inclusion.
+            </li>
+            <li>
+              Organized workshops on internet safety, productivity tools, and
+              computing to empower young girls and community members.
+            </li>
+            <li>
+              Supported elderly residents at Prem Dham with companionship and
+              daily-assistance activities.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="cw fi">
+        <div class="csub">Let's Connect</div>
+        <h2 class="ch">Get in Touch</h2>
+        <p class="cdesc">
+          Open to full-time roles, research collaborations, and freelance
+          projects<br />in AI engineering and data science.
+        </p>
+        <div class="cpills">
+          <a href="mailto:varshney2vaibhav@gmail.com" class="cpill">
+            <div
+              class="cpill-ico"
+              style="background: rgba(167, 139, 250, 0.15)"
+            >
+              📧
+            </div>
+            <div>
+              <div class="cpill-lbl">Email</div>
+              <div class="cpill-val">varshney2vaibhav@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/vaibhav-varshney" class="cpill">
+            <div class="cpill-ico" style="background: rgba(96, 165, 250, 0.15)">
+              💼
+            </div>
+            <div>
+              <div class="cpill-lbl">LinkedIn</div>
+              <div class="cpill-val">vaibhav-varshney</div>
+            </div>
+          </a>
+          <a href="https://github.com/VaibhaVarshney" class="cpill">
+            <div class="cpill-ico" style="background: rgba(45, 212, 191, 0.15)">
+              ⌨️
+            </div>
+            <div>
+              <div class="cpill-lbl">GitHub</div>
+              <div class="cpill-val">VaibhaVarshney</div>
+            </div>
+          </a>
+          <a href="https://medium.com/@varshney2vaibhav" class="cpill">
+            <div class="cpill-ico" style="background: rgba(251, 146, 60, 0.15)">
+              ✍️
+            </div>
+            <div>
+              <div class="cpill-lbl">Medium</div>
+              <div class="cpill-val">@varshney2vaibhav</div>
+            </div>
+          </a>
+        </div>
+        <a href="#" class="btn-fill" style="font-size: 14px; padding: 13px 32px"
+          >Download Resume</a
+        >
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-    <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-
-            <!-- Programming Languages -->
-            <div class="skill-category-card">
-                <h3>Programming Languages</h3>
-                <div class="skills-list">
-                    <span class="skill-name">Python</span>
-                    <span class="skill-name">C++</span>
-                    <span class="skill-name">SQL</span>
-                    <span class="skill-name">HTML</span>
-                    <span class="skill-name">CSS</span>
-                    <span class="skill-name">JavaScript</span>
-                </div>
-            </div>
-            <div class="skill-category-card">
-                <h3>Core Concepts</h3>
-                <div class="skills-list">
-                    <span class="skill-name">Machine Learning</span>
-                    <span class="skill-name">Deep Learning</span>
-                    <span class="skill-name">Natural Language Processing</span>
-                    <span class="skill-name">Computer Vision</span>
-                    <span class="skill-name">Predictive Modeling</span>
-                    <span class="skill-name">Data Structures & Algorithms</span>
-                    <span class="skill-name">Database Management Systems</span>
-                    <span class="skill-name">Model Evaluation & Optimization</span>
-                    <span class="skill-name">MLOps</span>
-                </div>
-            </div>
-            <!-- Frameworks & Tools -->
-            <div class="skill-category-card">
-                <h3>Frameworks & Tools</h3>
-                <div class="skills-list">
-                    <span class="skill-name">TensorFlow</span>
-                    <span class="skill-name">Keras</span>
-                    <span class="skill-name">PyTorch</span>
-                    <span class="skill-name">scikit-learn</span>
-                    <span class="skill-name">Pandas</span>
-                    <span class="skill-name">NumPy</span>
-                    <span class="skill-name">Matplotlib</span>
-                    <span class="skill-name">Seaborn</span>
-                    <span class="skill-name">Streamlit</span>
-                    <span class="skill-name">LangChain</span>
-                    <span class="skill-name">OpenAI API</span>
-                    <span class="skill-name">spaCy</span>
-                    <span class="skill-name">Flask</span>
-                </div>
-            </div>
-
-            <!-- Cloud & DevOps -->
-            <div class="skill-category-card">
-                <h3>Cloud & DevOps</h3>
-                <div class="skills-list">
-                    <span class="skill-name">AWS (Elastic Beanstalk, S3)</span>
-                    <span class="skill-name">Docker</span>
-                    <span class="skill-name">Git</span>
-                    <span class="skill-name">GitHub</span>
-                    <span class="skill-name">CI/CD Pipelines</span>
-                    <span class="skill-name">Linux</span>
-                </div>
-            </div>
-
-            <!-- Data Analytics & Visualization -->
-            <div class="skill-category-card">
-                <h3>Data Analytics & Visualization</h3>
-                <div class="skills-list">
-                    <span class="skill-name">Power BI</span>
-                    <span class="skill-name">Tableau</span>
-                    <span class="skill-name">Microsoft Excel</span>
-                    <span class="skill-name">Google Analytics</span>
-                    <span class="skill-name">EDA (Exploratory Data Analysis)</span>
-                    <span class="skill-name">Data Cleaning & Preprocessing</span>
-                </div>
-            </div>
-
-            <!-- Core Concepts -->
-            <div class="skill-category-card">
-                <h3>Core Concepts</h3>
-                <div class="skills-list">
-                    <span class="skill-name">Machine Learning</span>
-                    <span class="skill-name">Deep Learning</span>
-                    <span class="skill-name">Natural Language Processing</span>
-                    <span class="skill-name">Computer Vision</span>
-                    <span class="skill-name">Predictive Modeling</span>
-                    <span class="skill-name">Data Structures & Algorithms</span>
-                    <span class="skill-name">Database Management Systems</span>
-                    <span class="skill-name">Model Evaluation & Optimization</span>
-                    <span class="skill-name">MLOps</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Vaibhav Varshney. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/vaibhav-varshney-vv/" class="social-link" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/VaibhaVarshney" class="social-link" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:varshney2vaibhav@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <footer>
+      © 2025 Vaibhav Varshney &nbsp;·&nbsp; AI / ML Engineer &nbsp;·&nbsp;
+      University of Maryland, College Park
     </footer>
-   <script src="script.js"></script>
-<script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0c0c0d&w=600&t=n&d=waI9en-VNY6J_5tgM5_jSpsAvwqr17x7hIA0RC6qy4k&co=0f3f61'></script>
-</body>
+
+    <script>
+      /* ═══════════════════════════════════════
+   HERO — Neural net node animation
+═══════════════════════════════════════ */
+      (function () {
+        const cv = document.getElementById("hero-canvas");
+        const ctx = cv.getContext("2d");
+        let W,
+          H,
+          nodes = [],
+          frame = 0,
+          mouse = { x: null, y: null };
+
+        const COLORS = [
+          "167,139,250",
+          "45,212,191",
+          "244,114,182",
+          "96,165,250",
+          "240,238,232",
+        ];
+
+        function resize() {
+          W = cv.width = cv.offsetWidth;
+          H = cv.height = cv.offsetHeight;
+          init();
+        }
+
+        function init() {
+          nodes = [];
+          const n = Math.floor((W * H) / 6000);
+          for (let i = 0; i < n; i++) {
+            nodes.push({
+              x: Math.random() * W,
+              y: Math.random() * H,
+              vx: (Math.random() - 0.5) * 0.35,
+              vy: (Math.random() - 0.5) * 0.35,
+              r: Math.random() * 2 + 1,
+              col: COLORS[Math.floor(Math.random() * COLORS.length)],
+              al: Math.random() * 0.6 + 0.2,
+            });
+          }
+        }
+
+        function tick() {
+          ctx.clearRect(0, 0, W, H);
+          frame++;
+
+          // Draw connections
+          for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+              const dx = nodes[i].x - nodes[j].x,
+                dy = nodes[i].y - nodes[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 130) {
+                const al = (1 - dist / 130) * 0.18;
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x, nodes[i].y);
+                ctx.lineTo(nodes[j].x, nodes[j].y);
+                ctx.strokeStyle = `rgba(167,139,250,${al})`;
+                ctx.lineWidth = 0.6;
+                ctx.stroke();
+              }
+            }
+          }
+
+          // Mouse connections
+          if (mouse.x !== null) {
+            nodes.forEach((n) => {
+              const dx = n.x - mouse.x,
+                dy = n.y - mouse.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 180) {
+                const al = (1 - dist / 180) * 0.5;
+                ctx.beginPath();
+                ctx.moveTo(n.x, n.y);
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.strokeStyle = `rgba(167,139,250,${al})`;
+                ctx.lineWidth = 0.8;
+                ctx.stroke();
+                // repel
+                n.vx += (dx / dist) * 0.3;
+                n.vy += (dy / dist) * 0.3;
+              }
+            });
+          }
+
+          // Draw + move nodes
+          nodes.forEach((n) => {
+            n.x += n.vx;
+            n.y += n.vy;
+            n.vx *= 0.99;
+            n.vy *= 0.99;
+            if (n.x < 0 || n.x > W) n.vx *= -1;
+            if (n.y < 0 || n.y > H) n.vy *= -1;
+            const pulse =
+              n.al * (0.7 + 0.3 * Math.sin(frame * 0.02 + n.x * 0.01));
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${n.col},${pulse})`;
+            ctx.fill();
+          });
+
+          requestAnimationFrame(tick);
+        }
+
+        window.addEventListener("resize", resize);
+        const hero = document.getElementById("hero");
+        hero.addEventListener("mousemove", (e) => {
+          const r = cv.getBoundingClientRect();
+          mouse.x = e.clientX - r.left;
+          mouse.y = e.clientY - r.top;
+        });
+        hero.addEventListener("mouseleave", () => {
+          mouse.x = null;
+          mouse.y = null;
+        });
+        resize();
+        tick();
+      })();
+
+      /* ═══════════════════════════════════════
+   SKILLS — Physics bubble animation
+   (like Krishna Panchal's portfolio)
+═══════════════════════════════════════ */
+      (function () {
+        const cv = document.getElementById("skills-canvas");
+        const ctx = cv.getContext("2d");
+        const dpr = window.devicePixelRatio || 1;
+        let W,
+          H,
+          bubbles = [],
+          mouse = { x: null, y: null },
+          hovering = null;
+
+        const skills = [
+          { label: "Python", size: 52, col: "167,139,250" },
+          { label: "TensorFlow", size: 44, col: "45,212,191" },
+          { label: "PyTorch", size: 42, col: "244,114,182" },
+          { label: "LangChain", size: 40, col: "167,139,250" },
+          { label: "LangGraph", size: 38, col: "96,165,250" },
+          { label: "scikit-learn", size: 36, col: "45,212,191" },
+          { label: "Claude API", size: 34, col: "167,139,250" },
+          { label: "ChromaDB", size: 32, col: "251,146,60" },
+          { label: "Streamlit", size: 30, col: "96,165,250" },
+          { label: "AWS", size: 30, col: "251,146,60" },
+          { label: "Pandas", size: 28, col: "45,212,191" },
+          { label: "pgvector", size: 26, col: "167,139,250" },
+          { label: "Docker", size: 26, col: "96,165,250" },
+          { label: "Keras", size: 24, col: "244,114,182" },
+          { label: "SQL", size: 24, col: "45,212,191" },
+          { label: "spaCy", size: 22, col: "74,222,128" },
+          { label: "NumPy", size: 22, col: "45,212,191" },
+          { label: "HuggingFace", size: 28, col: "251,146,60" },
+          { label: "Power BI", size: 20, col: "96,165,250" },
+          { label: "Flask", size: 20, col: "74,222,128" },
+          { label: "BGE-M3", size: 22, col: "167,139,250" },
+          { label: "BM25", size: 20, col: "96,165,250" },
+          { label: "Plotly", size: 20, col: "244,114,182" },
+        ];
+
+        function resize() {
+          const rect = cv.getBoundingClientRect();
+          W = rect.width;
+          H = rect.height;
+          cv.width = W * dpr;
+          cv.height = H * dpr;
+          ctx.scale(dpr, dpr);
+          placeAll();
+        }
+
+        function placeAll() {
+          bubbles = [];
+          const sorted = [...skills].sort((a, b) => b.size - a.size);
+          for (const sk of sorted) {
+            const r = sk.size * 0.62 + 4;
+            let x,
+              y,
+              ok = false;
+            for (let t = 0; t < 400 && !ok; t++) {
+              x = r + Math.random() * (W - r * 2);
+              y = r + Math.random() * (H - r * 2);
+              ok = bubbles.every((b) => {
+                const dx = b.x - x,
+                  dy = b.y - y;
+                return Math.sqrt(dx * dx + dy * dy) > b.r + r + 6;
+              });
+            }
+            if (ok)
+              bubbles.push({
+                x,
+                y,
+                r,
+                sk,
+                vx: (Math.random() - 0.5) * 0.25,
+                vy: (Math.random() - 0.5) * 0.25,
+                tx: x,
+                ty: y,
+                scale: 1,
+                hovered: false,
+              });
+          }
+        }
+
+        function tick() {
+          ctx.clearRect(0, 0, W, H);
+
+          bubbles.forEach((b) => {
+            // gentle float
+            b.x += b.vx;
+            b.y += b.vy;
+            // soft boundary bounce
+            if (b.x - b.r < 0) {
+              b.x = b.r;
+              b.vx = Math.abs(b.vx);
+            }
+            if (b.x + b.r > W) {
+              b.x = W - b.r;
+              b.vx = -Math.abs(b.vx);
+            }
+            if (b.y - b.r < 0) {
+              b.y = b.r;
+              b.vy = Math.abs(b.vy);
+            }
+            if (b.y + b.r > H) {
+              b.y = H - b.r;
+              b.vy = -Math.abs(b.vy);
+            }
+            // soft separation
+            bubbles.forEach((o) => {
+              if (o === b) return;
+              const dx = b.x - o.x,
+                dy = b.y - o.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              const minD = b.r + o.r + 4;
+              if (dist < minD && dist > 0) {
+                const f = ((minD - dist) / minD) * 0.06;
+                b.vx += (dx / dist) * f;
+                b.vy += (dy / dist) * f;
+                o.vx -= (dx / dist) * f;
+                o.vy -= (dy / dist) * f;
+              }
+            });
+            // speed limit
+            const spd = Math.sqrt(b.vx * b.vx + b.vy * b.vy);
+            if (spd > 0.6) {
+              b.vx = (b.vx / spd) * 0.6;
+              b.vy = (b.vy / spd) * 0.6;
+            }
+
+            // mouse interaction
+            b.hovered = false;
+            if (mouse.x !== null) {
+              const dx = b.x - mouse.x,
+                dy = b.y - mouse.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < b.r) {
+                b.hovered = true;
+              }
+              if (dist < b.r + 60 && dist > 0) {
+                b.vx += (dx / dist) * 0.12;
+                b.vy += (dy / dist) * 0.12;
+              }
+            }
+
+            // draw
+            const col = b.sk.col;
+            const alpha = b.hovered ? 0.25 : 0.1;
+            ctx.beginPath();
+            ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${col},${alpha})`;
+            ctx.fill();
+            ctx.strokeStyle = `rgba(${col},${b.hovered ? 0.6 : 0.22})`;
+            ctx.lineWidth = b.hovered ? 1.5 : 1;
+            ctx.stroke();
+
+            // label
+            const fs = Math.max(9, Math.min(12, b.r * 0.46));
+            ctx.font = `${b.hovered ? 600 : 500} ${fs}px 'DM Sans',sans-serif`;
+            ctx.fillStyle = `rgba(${col},${b.hovered ? 1 : 0.75})`;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(b.sk.label, b.x, b.y);
+          });
+
+          requestAnimationFrame(tick);
+        }
+
+        const el = document.getElementById("skills");
+        el.addEventListener("mousemove", (e) => {
+          const r = cv.getBoundingClientRect();
+          mouse.x = e.clientX - r.left;
+          mouse.y = e.clientY - r.top;
+        });
+        el.addEventListener("mouseleave", () => {
+          mouse.x = null;
+          mouse.y = null;
+        });
+
+        window.addEventListener("resize", () => {
+          resize();
+        });
+        resize();
+        tick();
+      })();
+
+      /* ═══════════════════════════════════════
+   SCROLL FADE IN
+═══════════════════════════════════════ */
+      const obs = new IntersectionObserver(
+        (e) => {
+          e.forEach((x) => {
+            if (x.isIntersecting) x.target.classList.add("vis");
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll(".fi").forEach((el) => obs.observe(el));
+    </script>
+  </body>
 </html>
